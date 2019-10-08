@@ -9,6 +9,25 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+	border-radius: 10px;
+	background-color: #172A45;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	background-color: #0A192F;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+	background-color: #8892B0;
+}
+
+
+/*----------------  navbar -----------------*/
 .navbar {
 	background-color: #0A192F;
 	padding: 1% 0;
@@ -16,6 +35,12 @@ body {
 	padding-right: 25px;
 	box-shadow: 0px 1px 10px #000;
 	border: 0;
+}
+
+.navbar.navbar-default .navbar-collapse {
+	border: none;
+	box-shadow: none;
+	text-align: center;
 }
 
 #nav-div {
@@ -38,6 +63,7 @@ body {
 	color: #64FFDA;
 }
 
+/*------------------ Full Page -------------------*/
 .full-page {
 	display: table;
 	height: 100%;
@@ -45,6 +71,7 @@ body {
 	width: 100%;
 }
 
+/* --------------- Landing Page ------------------------- */
 #main-margin {
 	padding: 0 12%;
 }
@@ -55,7 +82,8 @@ body {
 	padding: 0 12%;
 }
 
-.landing-text p {
+.landing-text p,
+#contact-text p {
 	font-size: 16px;
 	color: rgb(100, 255, 218);
 	margin: 0px 0px 20px 3px;
@@ -63,7 +91,8 @@ body {
 	font-weight: normal;
 }
 
-.landing-text h1 {
+.landing-text h1,
+#contact-text h1 {
 	font-size: 70px;
 	line-height: 1.2;
 	font-weight: 600;
@@ -77,13 +106,14 @@ body {
 	margin: 0px 0px 10px;
 }
 
-.landing-text p.discription {
+.landing-text p.discription,
+#contact-text p.discription {
 	margin: 25px 0 15px;
 	color: #889293;
 	font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
-	font-size: 20px;
-	line-height: 1.3;
-	font-weight: 100;
+	font-size: 18px;
+	line-height: 1.4;
+	font-weight: 400;
 }
 
 .btn-lg {
@@ -107,10 +137,6 @@ body {
 	padding: 80px 0;
 }
 
-.padding img {
-	width: 100%;
-}
-
 .heading h3 {
 	font-size: 32px;
 	margin: 10px 0px 40px;
@@ -130,6 +156,7 @@ body {
 	vertical-align: middle;
 }
 
+/* ---------------- About ------------*/
 .aboutme {
 	margin: 0px 0px 15px;
 	line-height: 1.5;
@@ -140,7 +167,7 @@ body {
 
 
 #profile-img {
-	width: 320px !important;
+	width: 320px;
 	margin: auto;
 	display: block;
 	animation: scaledown 0.4s linear;
@@ -275,10 +302,6 @@ body {
 	margin: 0px 0px 15px;
 }
 
-.discription-width {
-	padding: 0 15%;
-}
-
 .card footer {
 	display: block;
 	background-color: #172A45;
@@ -311,6 +334,12 @@ body {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
+}
+
+.landing-text1 {
+	max-width: 600px;
+	width: 80%;
+	margin: 0 auto;
 }
 
 #contact-text h1 {
@@ -354,6 +383,96 @@ footer {
 
 	.padding img {
 		margin-top: 5%;
+	}
+
+	#home {
+		margin-top: 15%;
+	}
+
+	.discription-width {
+		padding: 0 5%;
+	}
+}
+
+@media (max-width: 600px) {
+	.abt-clm {
+		margin-bottom: 50px;
+	}
+
+	.padding {
+		padding: 40px 0;
+	}
+}
+
+@media (max-width: 400px) {
+	#main-margin {
+		padding: 0 5%;
+	}
+
+	.landing-text {
+		padding: 0 7%;
+	}
+
+	.padding {
+		padding: 30px 0;
+	}
+
+	.landing-text p.discription {
+		margin: 20px 0 10px;
+	}
+
+	.landing-text p {
+		font-size: 13px;
+	}
+
+	.landing-text h1 {
+		font-size: 35px;
+	}
+
+	.landing-text h1.disc {
+		font-size: 35px;
+	}
+
+	.heading h3 {
+		font-size: 22px;
+	}
+
+	.btn-lg {
+		padding: 18px 30px;
+		margin-top: 35px;
+	}
+
+	.aboutme {
+		font-size: 15px;
+	}
+
+	.abt-clm {
+		margin-bottom: 50px;
+	}
+
+	#profile-img {
+		width: 250px;
+	}
+
+	.padding img {
+		margin-top: 5%;
+
+	}
+
+	.card {
+		padding: 32px 25px;
+	}
+
+	.project-heading {
+		font-size: 18px;
+	}
+
+	.project-discription {
+		font-size: 15px;
+	}
+
+	#contact-text h1 {
+		font-size: 35px;
 	}
 
 	#home {
