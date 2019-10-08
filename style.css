@@ -1,0 +1,372 @@
+﻿html,
+body {
+	height: 100%;
+	width: 100%;
+	background-color: #0A192F;
+	font-size: 20px;
+	color: #8892B0;
+	line-height: 1.3;
+	-webkit-font-smoothing: antialiased;
+}
+
+.navbar {
+	background-color: #0A192F;
+	padding: 1% 0;
+	font-size: 1.2em;
+	padding-right: 25px;
+	box-shadow: 0px 1px 10px #000;
+	border: 0;
+}
+
+#nav-div {
+	margin-bottom: 50px;
+}
+
+.navbar-brand {
+	min-height: 55px;
+	padding: 5px 25px 5px;
+}
+
+.navbar-default .navbar-nav li a {
+	color: #C0CBEA;
+	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+	font-size: 15px;
+}
+
+.navbar-default .navbar-nav li a:hover,
+.navbar-default .navbar-nav li a.active {
+	color: #64FFDA;
+}
+
+.full-page {
+	display: table;
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+#main-margin {
+	padding: 0 12%;
+}
+
+.landing-text {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0 12%;
+}
+
+.landing-text p {
+	font-size: 16px;
+	color: rgb(100, 255, 218);
+	margin: 0px 0px 20px 3px;
+	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+	font-weight: normal;
+}
+
+.landing-text h1 {
+	font-size: 70px;
+	line-height: 1.2;
+	font-weight: 600;
+	margin: 0px;
+	color: rgb(230, 241, 255);
+}
+
+.landing-text h1.disc {
+	font-size: 60px;
+	color: rgb(136, 146, 176);
+	margin: 0px 0px 10px;
+}
+
+.landing-text p.discription {
+	margin: 25px 0 15px;
+	color: #889293;
+	font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+	font-size: 20px;
+	line-height: 1.3;
+	font-weight: 100;
+}
+
+.btn-lg {
+	padding: 20px 28px;
+	margin-top: 50px;
+	background-color: #0A192F;
+	color: #64FFDA;
+	border-color: #64FFDA;
+	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+	font-size: 14px;
+}
+
+.btn-lg:hover,
+.btn-lg:active {
+	background-color: rgba(100, 255, 218, 0.07);
+	color: #64FFDA;
+	border-color: #64FFDA;
+}
+
+.padding {
+	padding: 80px 0;
+}
+
+.padding img {
+	width: 100%;
+}
+
+.heading h3 {
+	font-size: 32px;
+	margin: 10px 0px 40px;
+	font-weight: 600;
+	color: white;
+}
+
+.heading h3::after {
+	content: "";
+	display: inline-block;
+	height: 1px;
+	width: 35%;
+	background-color: rgb(45, 57, 82);
+	position: relative;
+	top: -5px;
+	margin-left: 20px;
+	vertical-align: middle;
+}
+
+.aboutme {
+	margin: 0px 0px 15px;
+	line-height: 1.5;
+	font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+}
+
+
+#profile-img {
+	width: 320px !important;
+	margin: auto;
+	display: block;
+	animation: scaledown 0.4s linear;
+	animation-fill-mode: forwards;
+}
+
+#profile-img:hover {
+	z-index: 100;
+	animation: scale 0.4s linear;
+	animation-fill-mode: forwards;
+}
+
+.card {
+	animation: scaledown 0.3s linear;
+	animation-fill-mode: forwards;
+}
+
+.card:hover {
+	z-index: 100;
+	animation: scale 0.3s linear;
+	animation-fill-mode: forwards;
+}
+
+
+@keyframes scale {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+
+	100% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+}
+
+@keyframes scaledown {
+	0% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+
+	100% {
+		-webkit-transform: scale(1.0);
+		transform: scale(1.0);
+	}
+}
+
+.devicon-git-plain {
+	max-width: 100px;
+	padding: 15px 0;
+	margin: auto;
+	display: block;
+}
+
+#fixed {
+	background: url(img/background.jpg) no-repeat center center fixed;
+	display: table;
+	height: 40%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+.project-title {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.project-title h3 {
+	font-size: 32px;
+	margin: 10px 0px 40px;
+	font-weight: 600;
+	color: white;
+}
+
+.row-flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.row-flex [class*="col-"] {
+	margin-bottom: 30px;
+}
+
+.card {
+	width: 100%;
+	height: 100%;
+	background-color: #172A45;
+	padding: 32px 28px;
+	display: block;
+}
+
+.card .header-folder-img {
+	width: 40px;
+}
+
+.project-header .fa {
+	float: right;
+	color: #A8B2D1;
+	font-size: 25px;
+}
+
+.project-header .fa:hover {
+	color: #5AE5C7;
+}
+
+.project-header {
+	margin-bottom: 30px;
+}
+
+.project-heading {
+	font-size: 22px;
+	font-weight: 600;
+	color: rgb(204, 214, 246);
+	margin: 0px 0px 10px;
+}
+
+.project-discription {
+	font-size: 17px;
+	font-weight: 300;
+	color: rgb(168, 178, 209);
+}
+
+.project-discription p {
+	display: block;
+	margin-block-start: 1em;
+	margin-block-end: 1em;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+	margin: 0px 0px 15px;
+}
+
+.discription-width {
+	padding: 0 15%;
+}
+
+.card footer {
+	display: block;
+	background-color: #172A45;
+}
+
+.card footer ul {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+
+	-webkit-box-flex: 1;
+	flex-grow: 1;
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	margin-top: 20px;
+}
+
+.card footer ul li {
+	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+	font-size: 12px;
+	color: rgb(136, 146, 176);
+	line-height: 1.75;
+	margin-right: 15px;
+}
+
+
+.contact-text {
+	padding-top: 50px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.contact-text h1 {
+	font-size: 50px;
+}
+
+.heighlight {
+	color: #64FFDA;
+}
+
+footer {
+	width: 100%;
+	background-color: #020C1B;
+	padding: 5% 5% 5% 5%;
+	color: #8892B0;
+	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
+	font-size: 15px;
+	line-height: 1;
+}
+
+.fa {
+	padding: 15px;
+	font-size: 20px;
+	color: #A8B2D1;
+}
+
+.fa:hover {
+	color: #64FFDA;
+	text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+	.landing-text h1 {
+		font-size: 50px;
+	}
+
+	.landing-text h1.disc {
+		font-size: 45px;
+	}
+
+	.padding img {
+		margin-top: 5%;
+	}
+
+	#home {
+		margin-top: 15%;
+	}
+
+	.discription-width {
+		padding: 0 5%;
+	}
+}
+
+@media (min-width: 769px) {
+	footer {
+		padding: 2% 5% 0 5%;
+	}
+}
