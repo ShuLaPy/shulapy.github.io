@@ -9,3 +9,9 @@ $('.scroll').on('click', function (e) {
         // window.location.hash = target;
     });
 });
+
+$(document).ready(function () {
+    $(".navbar-toggle").on("click", function () {
+        $(this).toggleClass("active");
+    });
+});
