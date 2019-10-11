@@ -436,6 +436,10 @@ footer {
 	.container {
 		width: 1050px;
 	}
+
+	#profile-img {
+		margin-left: 32% !important;
+	}
 }
 
 
