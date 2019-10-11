@@ -208,6 +208,10 @@ body {
 	animation-fill-mode: forwards;
 }
 
+.card-margin {
+	margin: 0 12%;
+}
+
 .card {
 	animation: scaledown 0.3s linear;
 	animation-fill-mode: forwards;
@@ -421,6 +425,19 @@ footer {
 		padding: 0 5%;
 	}
 }
+
+@media (min-width: 992px) {
+	.container {
+		width: 900px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 1050px;
+	}
+}
+
 
 @media (max-width: 600px) {
 	.abt-clm {
