@@ -1,540 +1,540 @@
 ﻿html,
 body {
-	height: 100%;
-	width: 100%;
-	background-color: #0A192F;
-	font-size: 20px;
-	color: #8892B0;
-	line-height: 1.3;
-	-webkit-font-smoothing: antialiased;
+  height: 100%;
+  width: 100%;
+  background-color: #0a192f;
+  font-size: 20px;
+  color: #8892b0;
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-	border-radius: 10px;
-	background-color: #172A45;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #172a45;
 }
 
 ::-webkit-scrollbar {
-	width: 12px;
-	background-color: #0A192F;
+  width: 12px;
+  background-color: #0a192f;
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-	background-color: #8892B0;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #8892b0;
 }
 
+a {
+  color: rgba(100, 255, 218, 0.8);
+}
 
 /*----------------  navbar -----------------*/
 .navbar {
-	background-color: #0A192F;
-	padding: 1% 0;
-	font-size: 1.2em;
-	padding-right: 25px;
-	box-shadow: 0px 1px 10px #000;
-	border: 0;
+  background-color: #0a192f;
+  padding: 1% 0;
+  font-size: 1.2em;
+  padding-right: 25px;
+  box-shadow: 0px 1px 10px #000;
+  border: 0;
 }
 
 /* ------------------ Navbar Button ----------*/
 .navbar-default .navbar-toggle {
-	border: none;
-	background-color: #0A192F;
+  border: none;
+  background-color: #0a192f;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-	margin-bottom: 2px;
-	float: right;
-	background-color: #64FFDA;
-	transition: all 500ms linear;
+  margin-bottom: 2px;
+  float: right;
+  background-color: #64ffda;
+  transition: all 500ms linear;
 }
 
 .navbar-default .navbar-toggle:hover {
-	background-color: #0A192F !important;
+  background-color: #0a192f !important;
 }
 
 .navbar-default .navbar-toggle:focus {
-	background: #0A192F !important;
+  background: #0a192f !important;
 }
 
 .navbar-default .navbar-toggle.active .icon-bar {
-	transform: translateX(calc(100% - 25px));
+  transform: translateX(calc(100% - 25px));
 }
 
 /*--------------------navbar btn end------------*/
 
 .navbar.navbar-default .navbar-collapse {
-	border: none;
-	box-shadow: none;
-	text-align: center;
+  border: none;
+  box-shadow: none;
+  text-align: center;
 }
 
 #nav-div {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 .navbar-brand {
-	min-height: 55px;
-	padding: 5px 30px 5px;
+  min-height: 55px;
+  padding: 5px 30px 5px;
 }
 
 .navbar-default .navbar-nav li a {
-	color: #C0CBEA;
-	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
-	font-size: 15px;
+  color: #c0cbea;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+    "Lucida Console", Monaco, monospace;
+  font-size: 15px;
 }
 
 .navbar-default .navbar-nav li a:hover,
 .navbar-default .navbar-nav li a.active {
-	color: #64FFDA;
+  color: #64ffda;
 }
-
 
 /*------------------ Full Page -------------------*/
 .full-page {
-	display: table;
-	height: 100%;
-	position: relative;
-	width: 100%;
+  display: table;
+  height: 100%;
+  position: relative;
+  width: 100%;
 }
 
 /* --------------- Landing Page ------------------------- */
 #main-margin {
-	padding: 0 12%;
+  padding: 0 12%;
 }
 
 .landing-text {
-	display: table-cell;
-	vertical-align: middle;
-	padding: 0 12%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 12%;
 }
 
 .landing-text p,
 #contact-text p {
-	font-size: 16px;
-	color: rgb(100, 255, 218);
-	margin: 0px 0px 20px 3px;
-	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
-	font-weight: normal;
+  font-size: 16px;
+  color: rgb(100, 255, 218);
+  margin: 0px 0px 20px 3px;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+    "Lucida Console", Monaco, monospace;
+  font-weight: normal;
 }
 
 .landing-text h1,
 #contact-text h1 {
-	font-size: 70px;
-	line-height: 1.2;
-	font-weight: 600;
-	margin: 0px;
-	color: rgb(230, 241, 255);
+  font-size: 70px;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0px;
+  color: rgb(230, 241, 255);
 }
 
 .landing-text h1.disc {
-	font-size: 60px;
-	color: rgb(136, 146, 176);
-	margin: 0px 0px 10px;
+  font-size: 60px;
+  color: rgb(136, 146, 176);
+  margin: 0px 0px 10px;
 }
 
 .landing-text p.discription,
 #contact-text p.discription {
-	margin: 25px 0 15px;
-	color: #889293;
-	font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
-	font-size: 18px;
-	line-height: 1.4;
-	font-weight: 400;
+  margin: 25px 0 15px;
+  color: #889293;
+  font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui,
+    BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 400;
 }
 
 .btn-lg {
-	padding: 20px 28px;
-	margin-top: 50px;
-	background-color: #0A192F;
-	color: #64FFDA;
-	border-color: #64FFDA;
-	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
-	font-size: 14px;
+  padding: 20px 28px;
+  margin-top: 50px;
+  background-color: #0a192f;
+  color: #64ffda;
+  border-color: #64ffda;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+    "Lucida Console", Monaco, monospace;
+  font-size: 14px;
 }
 
 .btn-lg:hover,
 .btn-lg:active {
-	background-color: rgba(100, 255, 218, 0.07);
-	color: #64FFDA;
-	border-color: #64FFDA;
+  background-color: rgba(100, 255, 218, 0.07);
+  color: #64ffda;
+  border-color: #64ffda;
 }
 
 .padding {
-	padding: 80px 0;
+  padding: 80px 0;
 }
 
 .heading h3 {
-	font-size: 32px;
-	margin: 10px 0px 40px;
-	font-weight: 600;
-	color: white;
+  font-size: 32px;
+  margin: 10px 0px 40px;
+  font-weight: 600;
+  color: white;
 }
 
 .heading h3::after {
-	content: "";
-	display: inline-block;
-	height: 1px;
-	width: 35%;
-	background-color: rgb(45, 57, 82);
-	position: relative;
-	top: -5px;
-	margin-left: 20px;
-	vertical-align: middle;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 35%;
+  background-color: rgb(45, 57, 82);
+  position: relative;
+  top: -5px;
+  margin-left: 20px;
+  vertical-align: middle;
 }
 
 /* ---------------- About ------------*/
 .aboutme {
-	margin: 0px 0px 15px;
-	line-height: 1.5;
-	font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui, BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
-	font-weight: 400;
-	font-size: 18px;
+  margin: 0px 0px 15px;
+  line-height: 1.5;
+  font-family: Calibre, "San Francisco", "SF Pro Text", -apple-system, system-ui,
+    BlinkMacSystemFont, Roboto, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: justify;
 }
 
-
 #profile-img {
-	width: 320px;
-	margin: auto;
-	display: block;
-	animation: scaledown 0.4s linear;
-	animation-fill-mode: forwards;
+  width: 320px;
+  margin: auto;
+  display: block;
+  animation: scaledown 0.4s linear;
+  animation-fill-mode: forwards;
 }
 
 #profile-img:hover {
-	z-index: 100;
-	animation: scale 0.4s linear;
-	animation-fill-mode: forwards;
+  z-index: 100;
+  animation: scale 0.4s linear;
+  animation-fill-mode: forwards;
 }
 
 .card-margin {
-	margin: 0 12%;
+  margin: 0 12%;
 }
 
 .card {
-	animation: scaledown 0.3s linear;
-	animation-fill-mode: forwards;
+  animation: scaledown 0.3s linear;
+  animation-fill-mode: forwards;
 }
 
 .card:hover {
-	z-index: 100;
-	animation: scale 0.3s linear;
-	animation-fill-mode: forwards;
+  z-index: 100;
+  animation: scale 0.3s linear;
+  animation-fill-mode: forwards;
 }
 
-
 @keyframes scale {
-	0% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 
-	100% {
-		-webkit-transform: scale(1.1);
-		transform: scale(1.1);
-	}
+  100% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 }
 
 @keyframes scaledown {
-	0% {
-		-webkit-transform: scale(1.1);
-		transform: scale(1.1);
-	}
+  0% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 
-	100% {
-		-webkit-transform: scale(1.0);
-		transform: scale(1.0);
-	}
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .devicon-git-plain {
-	max-width: 100px;
-	padding: 15px 0;
-	margin: auto;
-	display: block;
+  max-width: 100px;
+  padding: 15px 0;
+  margin: auto;
+  display: block;
 }
 
 #fixed {
-	background: url(img/background.jpg) no-repeat center center fixed;
-	display: table;
-	height: 40%;
-	position: relative;
-	width: 100%;
-	background-size: cover;
+  background: url(img/background.jpg) no-repeat center center fixed;
+  display: table;
+  height: 40%;
+  position: relative;
+  width: 100%;
+  background-size: cover;
 }
 
 .project-title {
-	display: table-cell;
-	vertical-align: middle;
-	text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .project-title h3 {
-	font-size: 32px;
-	margin: 10px 0px 40px;
-	font-weight: 600;
-	color: white;
+  font-size: 32px;
+  margin: 10px 0px 40px;
+  font-weight: 600;
+  color: white;
 }
 
 .row-flex {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .row-flex [class*="col-"] {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .card {
-	width: 100%;
-	height: 100%;
-	background-color: #172A45;
-	padding: 32px 28px;
-	display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #172a45;
+  padding: 32px 28px;
+  display: block;
 }
 
 .card .header-folder-img {
-	width: 40px;
+  width: 40px;
 }
 
 .project-header .fa {
-	float: right;
-	color: #A8B2D1;
-	font-size: 25px;
+  float: right;
+  color: #a8b2d1;
+  font-size: 25px;
 }
 
 .project-header .fa:hover {
-	color: #5AE5C7;
+  color: #5ae5c7;
 }
 
 .project-header {
-	margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .project-heading {
-	font-size: 22px;
-	font-weight: 600;
-	color: rgb(204, 214, 246);
-	margin: 0px 0px 10px;
+  font-size: 22px;
+  font-weight: 600;
+  color: rgb(204, 214, 246);
+  margin: 0px 0px 10px;
 }
 
 .project-discription {
-	font-size: 17px;
-	font-weight: 300;
-	color: rgb(168, 178, 209);
+  font-size: 17px;
+  font-weight: 300;
+  color: rgb(168, 178, 209);
 }
 
 .project-discription p {
-	display: block;
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	margin: 0px 0px 15px;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0px 0px 15px;
 }
 
 .card footer {
-	display: block;
-	background-color: #172A45;
+  display: block;
+  background-color: #172a45;
 }
 
 .card footer ul {
-	padding: 0px;
-	margin: 0px;
-	list-style: none;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
 
-	-webkit-box-flex: 1;
-	flex-grow: 1;
-	display: flex;
-	align-items: flex-end;
-	flex-wrap: wrap;
-	margin-top: 20px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .card footer ul li {
-	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
-	font-size: 12px;
-	color: rgb(136, 146, 176);
-	line-height: 1.75;
-	margin-right: 15px;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+    "Lucida Console", Monaco, monospace;
+  font-size: 12px;
+  color: rgb(136, 146, 176);
+  line-height: 1.75;
+  margin-right: 15px;
 }
 
-
 #contact-text {
-	padding: 50px 0 70px 0;
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
+  padding: 50px 0 70px 0;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .landing-text1 {
-	max-width: 600px;
-	width: 80%;
-	margin: 0 auto;
+  max-width: 600px;
+  width: 80%;
+  margin: 0 auto;
 }
 
 #contact-text h1 {
-	font-size: 50px;
+  font-size: 50px;
 }
 
 .heighlight {
-	color: #64FFDA;
+  color: #64ffda;
 }
 
 footer {
-	width: 100%;
-	background-color: #020C1B;
-	padding: 5% 5% 5% 5%;
-	color: #8892B0;
-	font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", "Lucida Console", Monaco, monospace;
-	font-size: 15px;
-	line-height: 1;
+  width: 100%;
+  background-color: #020c1b;
+  padding: 5% 5% 5% 5%;
+  color: #8892b0;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono",
+    "Lucida Console", Monaco, monospace;
+  font-size: 15px;
+  line-height: 1;
 }
 
 .fa {
-	padding: 15px;
-	font-size: 20px;
-	color: #A8B2D1;
+  padding: 15px;
+  font-size: 20px;
+  color: #a8b2d1;
 }
 
 .fa:hover {
-	color: #64FFDA;
-	text-decoration: none;
+  color: #64ffda;
+  text-decoration: none;
 }
 
-
 @media (max-width: 768px) {
-	.landing-text h1 {
-		font-size: 50px;
-	}
+  .landing-text h1 {
+    font-size: 50px;
+  }
 
-	.landing-text h1.disc {
-		font-size: 45px;
-	}
+  .landing-text h1.disc {
+    font-size: 45px;
+  }
 
-	.padding img {
-		margin-top: 5%;
-	}
+  .padding img {
+    margin-top: 5%;
+  }
 
-	#home {
-		margin-top: 15%;
-	}
+  #home {
+    margin-top: 15%;
+  }
 
-	.discription-width {
-		padding: 0 5%;
-	}
+  .discription-width {
+    padding: 0 5%;
+  }
 }
 
 @media (min-width: 992px) {
-	.container {
-		width: 900px;
-	}
+  .container {
+    width: 900px;
+  }
 }
 
 @media (min-width: 1200px) {
-	.container {
-		width: 1050px;
-	}
-
-	#profile-img {
-		margin-left: 32% !important;
-	}
+  .container {
+    width: 1050px;
+  }
 }
 
-
 @media (max-width: 600px) {
-	.abt-clm {
-		margin-bottom: 50px;
-	}
+  .abt-clm {
+    margin-bottom: 50px;
+  }
 
-	.padding {
-		padding: 80px 0;
-	}
+  .padding {
+    padding: 80px 0;
+  }
 }
 
 @media (max-width: 400px) {
-	#main-margin {
-		padding: 0 5%;
-	}
+  #main-margin {
+    padding: 0 5%;
+  }
 
-	.landing-text {
-		padding: 0 7%;
-	}
+  .landing-text {
+    padding: 0 7%;
+  }
 
-	.padding {
-		padding: 70px 0;
-	}
+  .padding {
+    padding: 70px 0;
+  }
 
-	.landing-text p.discription {
-		margin: 20px 0 10px;
-	}
+  .landing-text p.discription {
+    margin: 20px 0 10px;
+  }
 
-	.landing-text p {
-		font-size: 13px;
-	}
+  .landing-text p {
+    font-size: 13px;
+  }
 
-	.landing-text h1 {
-		font-size: 35px;
-	}
+  .landing-text h1 {
+    font-size: 35px;
+  }
 
-	.landing-text h1.disc {
-		font-size: 35px;
-	}
+  .landing-text h1.disc {
+    font-size: 35px;
+  }
 
-	.heading h3 {
-		font-size: 22px;
-	}
+  .heading h3 {
+    font-size: 22px;
+  }
 
-	.btn-lg {
-		padding: 18px 30px;
-		margin-top: 35px;
-	}
+  .btn-lg {
+    padding: 18px 30px;
+    margin-top: 35px;
+  }
 
-	.aboutme {
-		font-size: 15px;
-	}
+  .aboutme {
+    font-size: 15px;
+  }
 
-	.abt-clm {
-		margin-bottom: 50px;
-	}
+  .abt-clm {
+    margin-bottom: 50px;
+  }
 
-	#profile-img {
-		width: 250px;
-	}
+  #profile-img {
+    width: 250px;
+  }
 
-	.padding img {
-		margin-top: 5%;
+  .padding img {
+    margin-top: 5%;
+  }
 
-	}
+  .card {
+    padding: 32px 25px;
+  }
 
-	.card {
-		padding: 32px 25px;
-	}
+  .project-heading {
+    font-size: 18px;
+  }
 
-	.project-heading {
-		font-size: 18px;
-	}
+  .project-discription {
+    font-size: 15px;
+  }
 
-	.project-discription {
-		font-size: 15px;
-	}
+  #contact-text h1 {
+    font-size: 35px;
+  }
 
-	#contact-text h1 {
-		font-size: 35px;
-	}
+  #home {
+    margin-top: 15%;
+  }
 
-	#home {
-		margin-top: 15%;
-	}
-
-	.discription-width {
-		padding: 0 5%;
-	}
+  .discription-width {
+    padding: 0 5%;
+  }
 }
 
 @media (min-width: 769px) {
-	footer {
-		padding: 2% 5% 0 5%;
-	}
+  footer {
+    padding: 2% 5% 0 5%;
+  }
 }
