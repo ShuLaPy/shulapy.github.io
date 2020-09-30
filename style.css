@@ -30,6 +30,21 @@ a {
   color: rgba(100, 255, 218, 0.8);
 }
 
+.status {
+  font-size: 13px;
+  font-weight: 600;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #dc3545;
+  color: white;
+  padding: 2px 4px;
+}
+
+.continuous {
+  background-color: #28a745 !important;
+}
+
 /*----------------  navbar -----------------*/
 .navbar {
   background-color: #0a192f;
@@ -232,6 +247,7 @@ a {
   animation: scaledown 0.3s linear;
   animation-fill-mode: forwards;
   max-width: 500px;
+  position: relative;
 }
 
 .header-folder-img {
