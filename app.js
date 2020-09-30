@@ -22,3 +22,19 @@ $(document).ready(function () {
     $(this).toggleClass("active");
   });
 });
+
+let footer = parseInt($(".footer").offset().top, 10);
+console.log(footer);
+$(window).scroll(function () {
+  let scrollBottom = $(window).scrollTop() + $(".footer").height();
+  console.log(scrollBottom);
+  if (scrollBottom >= footer) {
+    $(".social-icons").css({
+      display: "none",
+    });
+  } else {
+    $(".social-icons").css({
+      display: "",
+    });
+  }
+});

@@ -45,6 +45,27 @@ a {
   background-color: #28a745 !important;
 }
 
+.vertical-list {
+  position: absolute;
+  bottom: 95px;
+  left: 15px;
+  position: fixed;
+  display: "";
+  z-index: 999999;
+  list-style: none;
+  line-height: 35px;
+}
+
+.vertical-list:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 65px;
+  border-left: 2px solid #64ffda;
+  height: 99px;
+  width: 2px;
+}
+
 /*----------------  navbar -----------------*/
 .navbar {
   background-color: #0a192f;
@@ -447,6 +468,12 @@ footer {
 
   .discription-width {
     padding: 0 5%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .vertical-list {
+    display: none;
   }
 }
 
