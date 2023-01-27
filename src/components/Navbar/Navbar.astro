@@ -10,12 +10,13 @@ import "./Navbar.scss";
       <li><a href="#">About</a></li>
       <li><a href="#">Blog</a></li>
       <li><a href="#">Notes</a></li>
-      <li><a href="#">Resume</a></li>
+      <li><a href="#" class="green">Resume</a></li>
+      <!-- <li class="theme-toggle"><button>Toggle</button></li> -->
     </ul>
   </nav>
   <Toggle />
+  <div id="menu-items">Menu</div>
 </header>
-
 
 <script>
     window.onscroll = () => {
@@ -25,5 +26,12 @@ import "./Navbar.scss";
         } else {
             nav.classList.remove('sticky');
         }
+    }
+
+    let menu = document.querySelector('#menu-items');
+    let navbar = document.querySelector('nav');
+
+    menu.onclick = () => {
+      navbar.classList.toggle('open');
     }
 </script>
