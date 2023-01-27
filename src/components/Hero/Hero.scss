@@ -3,8 +3,25 @@
   align-content: center;
   flex-wrap: wrap;
 
+  .circle {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(73deg, rgba(20,184,166,1) 0%, rgba(175,118,180,1) 23%, rgba(20,184,166,1) 50%, rgba(175,118,180,1) 75%, rgba(20,60,184,1) 100%);
+    // background: linear-gradient(to left, #fa39ad 20%, #f48958 30%, #fe6c4c 50%);
+    // border-radius: 50%;
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: rotateX(20);
+    z-index: 0;
+    filter: blur(50px);
+    opacity: 0.2;
+  }
+
   .hero-section {
     margin: 0 10%;
+    z-index: 1;
 
     p.green {
       font-family: "Monaco" !important;
