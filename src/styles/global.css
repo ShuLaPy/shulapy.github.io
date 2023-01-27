@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;500&display=swap");
 
 :root {
   --background-color: #0a192f;
   --text-color: #8892b0;
+  --secondary-text-color: #889293;
   --nav-text-color: #ccd6f6;
   --green-color: #64ffda;
   --heading-color: #e6f1ff;
@@ -10,23 +11,27 @@
   --card-background-color: #172a45;
   --footer-background-color: #020c1b;
   --font-size: 16px;
-  --font-bold: 500; 
+  --font-bold: 500;
   --font-regular: 100;
   --font-medium: 300;
   --slider-bg: #dddddd;
   --slider-bg-before: #fff;
   --slider-input-bg: #8758ff;
+  --btn-hover-color: rgba(100, 255, 218, 0.07);
 }
 
 [data-theme="light"] {
   --background-color: #f2f2f2;
-  --heading-color: #444444;
-  --text-color: #111827;
+  --heading-color: #14b8a6;
+  --sub-heading-color: #111827;
+  --green-color: #14b8a6;
+  --text-color: #334155;
+  --secondary-text-color: #334155;
   --nav-text-color: #6b7280;
   --slider-bg: #dddddd;
   --slider-bg-before: #fff;
   --slider-input-bg: #8758ff;
-  --header-background-color: rgba(242, 242, 242, 0.7); 
+  --header-background-color: rgba(242, 242, 242, 0.7);
   --header-shadow-color: #dcdbdb;
   --card-background-color: var(--background-color);
 }
@@ -73,4 +78,10 @@ main {
 
 .green {
   color: var(--green-color);
+}
+
+.full-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
 }
