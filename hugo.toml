@@ -2,3 +2,18 @@ baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'Shubham Lad'
 theme = 'paper'
+
+[params]
+  # home page profile
+  avatar = 'shubhamlad1001@gmail.com'                 # gravatar email or image url
+  name = 'Brief Description'
+
+[menu]
+  # [[menu.main]]
+  #   name = '📋 Notes'
+  #   url = 'https://notes.shubhamlad.in'
+  #   weight = 20
+  [[menu.main]]
+    name = '📝 Blog'
+    pageRef = '/blog'
+    weight = 20
