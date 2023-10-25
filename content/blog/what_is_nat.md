@@ -2,6 +2,8 @@
 title: "Network Address Translation (NAT): Bridging the Gap in IP Addressing"
 date: 2023-10-24T13:34:33+05:30
 draft: false
+images:
+- https://drive.google.com/uc?id=1Af3fnYvqGDTJq75Q4hE0vHm-3nekhDwj
 ---
 ![NAT](https://i.giphy.com/media/l0Hlwi7KzoajIJTI4/giphy.gif)
 
