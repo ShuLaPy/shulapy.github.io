@@ -9,7 +9,7 @@ theme = 'paper'
   name = 'Brief Description'
   images = ['https://drive.google.com/uc?id=11cn1SC-hMlLKUvqtXb6TCmgrZAFLdVAG']
   title = 'Shubham Lad | Sr. Software Engineer'
-  description = 'Explore the tech world with Shubham, a Senior Software Engineer. Unravel System Designs, Database, Networks, and more. Grab a coffee, get comfy, and let's dive into software together!'
+  description = "Explore the tech world with Shubham, a Senior Software Engineer. Unravel System Designs, Database, Networks, and more. Grab a coffee, get comfy, and let's dive into software together!"
 
 [markup]
   defaultMarkdownHandler = 'goldmark'
