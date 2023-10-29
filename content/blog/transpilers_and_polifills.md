@@ -2,6 +2,8 @@
 title: "Let's understand: Polyfills and transpilers"
 date: 2023-08-01T01:10:53+05:30
 draft: false
+images:
+- https://drive.google.com/uc?id=12mW4C84GaKM1CLj6kyDtrpq8L6-bRUm4
 ---
 
 ![transpiler](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnI0cmN6ZnY5YjVlaHU5bXlvZzJybXJtOG0zZWlmMzh6ZzI0cHJjeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uu02NeT9btwL0yhgxa/giphy.gif)

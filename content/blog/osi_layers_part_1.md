@@ -2,6 +2,8 @@
 title: OSI 7-Layer Model - Part 1
 date: 2023-10-21T11:14:04+05:30
 draft: false
+images:
+- https://drive.google.com/uc?id=1KwjvpoOwbNyYsIqDf4axzxGwhL5chix5
 ---
 ![Let's find out](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2NhN2gyM25nMGdjMHlqYmF3bnc4bHRxaWptdHVoZ3dsandtZW11bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yvqRaXlOsc068DDTzt/giphy.gif)
 ## Layer stack:
