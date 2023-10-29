@@ -1,4 +1,4 @@
-baseURL = 'http://example.org/'
+baseURL = 'https://shubhamlad.in/'
 languageCode = 'en-us'
 title = 'Shubham Lad'
 theme = 'paper'
@@ -7,6 +7,13 @@ theme = 'paper'
   # home page profile
   avatar = 'shubhamlad1001@gmail.com'                 # gravatar email or image url
   name = 'Brief Description'
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+
+[markup.goldmark.parser.attribute]
+block = true
+title = true
 
 [menu]
   # [[menu.main]]

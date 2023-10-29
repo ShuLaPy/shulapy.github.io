@@ -8,6 +8,12 @@ title: 😎 About Me
 
 ![Shubham Lad](/shubham_lad.webp)
 
+### Where you can find me online
+
+- GitHub [@shulapy](https://github.com/shulapy)
+- Twitter [@\_shulapy](https://twitter.com/_shulapy)
+- LinkedIn [shubhamlad](https://www.linkedin.com/in/shubhamlad/)
+
 With extensive experience in both product and service-based companies as a skilled Software Engineer, I thrive in fast-paced environments where results matter. My expertise in startup environments has given me a deep understanding of what it takes to deliver innovative solutions that meet client needs.
 
 I have a proven track record of optimizing complex backend systems and delivering scalable, high-performance solutions. Working closely with CTOs to drive revenue and company growth has been an integral part of my role.

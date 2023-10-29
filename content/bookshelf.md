@@ -9,6 +9,7 @@ title: 📚 Bookshelf
 ## Programming
 
 - [Node.js Design Patterns](https://www.nodejsdesignpatterns.com/)
+- [Learning Go](https://www.oreilly.com/library/view/learning-go/9781492077206/)
 - [C# 9 and .NET 5 – Modern Cross-Platform Development](https://www.packtpub.com/product/c-9-and-net-5-modern-cross-platform-development-fifth-edition/9781800568105)
 - [An Introduction to Programming in GO](https://www.golang-book.com/books/intro)
 
