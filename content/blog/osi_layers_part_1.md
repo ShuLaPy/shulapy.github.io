@@ -3,12 +3,12 @@ title: OSI 7-Layer Model - Part 1
 date: 2023-10-21T11:14:04+05:30
 draft: false
 images:
-- https://drive.google.com/uc?id=1KwjvpoOwbNyYsIqDf4axzxGwhL5chix5
+- https://res.cloudinary.com/dju7jxioz/image/upload/v1717994685/osi_7_layer_thumbnail_x49n5t.jpg
 ---
 ![Let's find out](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2NhN2gyM25nMGdjMHlqYmF3bnc4bHRxaWptdHVoZ3dsandtZW11bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yvqRaXlOsc068DDTzt/giphy.gif)
 ## Layer stack:
 
-![image](https://drive.google.com/uc?id=188WWeG3cCqO97LCLblZ3NmCotDK55Iv2)
+![image](https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/OSI_layers_feknxa.png)
 
 In the OSI model, **the media layers are the bottom three layers, and the host layers are the top four layers**. The media layers define hardware orientation, such as: Routing, Switching, Cable specifications. 
 

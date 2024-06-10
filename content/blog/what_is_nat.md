@@ -3,7 +3,7 @@ title: "Network Address Translation (NAT): Bridging the Gap in IP Addressing"
 date: 2023-10-24T13:34:33+05:30
 draft: false
 images:
-- https://drive.google.com/uc?id=1eA92OfGAfTCp-5BCNb5V5fOcmlgDSLV3
+- https://res.cloudinary.com/dju7jxioz/image/upload/v1717994685/nat_thumbnail_xgtpy2.png
 ---
 ![NAT](https://i.giphy.com/media/l0Hlwi7KzoajIJTI4/giphy.gif)
 
@@ -55,7 +55,7 @@ Lets understand this by example:
 
 ### Static Network Address Translation
 
-![Static NAT](https://drive.google.com/uc?id=1xDwr70TX5jkJjD2ar2ot-V4LNf5sYToB)
+![Static NAT](https://res.cloudinary.com/dju7jxioz/image/upload/v1717995039/STATIC_NAT_d5z3sk.png)
 
 - In above diagram where there are devices on the left in a private network and the public network on the right.
 - The devices on the left have private IP addresses, which can't be used to send packets directly to the public internet. They need public IP addresses for that.
@@ -69,7 +69,7 @@ Lets understand this by example:
 
 ### Dynamic Network Address Translation
 
-![Dynamic NAT](https://drive.google.com/uc?id=1RI2o2Uk-GRjO0ANtdoAE8vttR3OJh79Q)
+![Dynamic NAT](https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/DYNAMIC_NAT_nwm5xf.png)
 
 - The basic idea is similar to Static NAT, but with a twist. Here, devices don't get permanent public IPs.
 - Instead, they receive temporary public IPs from a pool whenever they need to go online.
@@ -79,7 +79,7 @@ Lets understand this by example:
 
 ### Port Address Translation (PAT)
 
-![PAT](https://drive.google.com/uc?id=1Af3fnYvqGDTJq75Q4hE0vHm-3nekhDwj)
+![PAT](https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/PAT_wz9gn3.png)
 
 - This is the type of NAT we often find in our home routers.
 - It enables a large number of devices to share a single public IP address (MANY: ONE).

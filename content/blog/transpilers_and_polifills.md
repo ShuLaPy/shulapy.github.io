@@ -3,7 +3,7 @@ title: "Let's understand: Polyfills and transpilers"
 date: 2023-08-01T01:10:53+05:30
 draft: false
 images:
-- https://drive.google.com/uc?id=12mW4C84GaKM1CLj6kyDtrpq8L6-bRUm4
+- https://res.cloudinary.com/dju7jxioz/image/upload/v1717994686/polifills_thumbnail_iptrxt.png
 ---
 
 ![transpiler](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnI0cmN6ZnY5YjVlaHU5bXlvZzJybXJtOG0zZWlmMzh6ZzI0cHJjeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uu02NeT9btwL0yhgxa/giphy.gif)
@@ -39,7 +39,7 @@ We saw what transpiler actually is now lets see how it works?
 
 ## How does a transpiler work?
 
-![image](https://drive.google.com/uc?id=1fr5_hssSG1w_fPgZjnGwgSoyl_ylcKUP)
+![image](https://res.cloudinary.com/dju7jxioz/image/upload/v1717996138/transpiler-working-min_pcf9rt.webp)
 
 The transpiler parses the code and identifies tokens, which are the fundamental building blocks of the language. Tokens include language keywords, variables, literals, and operators. This step involves both lexical analysis and syntax analysis, and the transpiler understands the syntax rules of the input language. Based on the tokens and syntax rules, the transpiler constructs an Abstract Syntax Tree (AST). The AST organizes the code in a hierarchical tree with all its metadata.
 
@@ -64,7 +64,7 @@ a + 5
 
 Result in the following Abstract Syntax Tree:
 
-![AST tree](https://drive.google.com/uc?id=16KsyEyLLOEi9jZ0Z5Ke4imAM6oP43e94)
+![AST tree](https://res.cloudinary.com/dju7jxioz/image/upload/v1717995041/ast_tree_mhyh1g.png)
 
 There are various transpilers available for different languages, like for JavaScript Babel, TypeScript, and CoffeeScript, VOC for Python to Java, and JSweet for Java to TypeScript or JavaScript. Transpilers are versatile tools that help developers write modern code while ensuring compatibility with different environments.
 

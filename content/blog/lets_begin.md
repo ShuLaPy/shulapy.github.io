@@ -3,7 +3,7 @@ title: "Let's begin the journey"
 date: 2023-06-23T12:17:20+05:30
 draft: false
 images:
-- https://drive.google.com/uc?id=1cYj2apeuETGS1k_QLwgdcGavV7eXcnOO
+- https://res.cloudinary.com/dju7jxioz/image/upload/v1717994685/blog_journey_thumbnail_u9gzwn.png
 ---
 
 ![architectural patterns](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzc3M2FzMGtvb3doMWx3N2txbXc1YWRmNGhnZThtYzJsdjdkM2hzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3orieKSJONEWV51x3q/giphy.gif)
