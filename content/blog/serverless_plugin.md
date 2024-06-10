@@ -8,21 +8,21 @@ images:
 
 ![plugin](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHpzdDRranNzdXRxOGw1dWJtb3ZxbXVrcndiaXc5Nzk3NjBweDh2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QvGCMeHuP1vLYl2hLb/giphy-downsized.gif)
 
-While working on a project in my company, I found the need to customize an open-source serverless plugin called `serverless-appsync-plugin` to meet our requirements. As I delved into the plugin, my interest grew, and I began to explore its intricacies. Through this process, I gained a deeper understanding of what it takes to build a serverless plugin. In this post, I'll share some fundamental concepts to help you get started with plugin development.
+Working on a project in my company brought forward the need to customize this open-source serverless plugin, `serverless-appsync-plugin` further, to match our requirements. The deeper I went through the plugin, the more interested I became to discover more intricacies associated with it. In the process, I learned a few things that go into writing a serverless plugin. In this article, I will share some basic ideas to help you get started with developing your plugin.
 
 # Introduction
 
-The Serverless Framework is a powerful tool that enables developers to build and deploy serverless applications with ease. While the framework offers a robust set of features out of the box, its true potential is unlocked through the use of plugins. Plugins allow developers to extend and customize the functionality of the Serverless Framework to suit their specific needs. In this blog, I'll walk you through the process of creating your own plugin for the Serverless Framework.
+The Serverless Framework is a pretty solid tool because it helps the user build and deploy serverless applications. While the framework is packed with numerous powerful features, the real power is unleashed when using plugins. Plugins allow developers to extend and customize the functionality of the Serverless Framework to meet their specific requirements. This blog will lead you through the process of creating your first plugin for the Serverless Framework.
 
 # Understanding Serverless Framework
 
-The Serverless Framework is an open-source tool that simplifies the deployment of serverless applications across various cloud providers. It abstracts the complexities of serverless architecture, allowing developers to focus on writing code rather than managing infrastructure.
+The Serverless Framework is an open-source application framework that simplifies the deployment of serverless applications across various cloud providers. It abstracts away the pains of managing serverless architecture. Therefore developers can fully focus on writing code rather than managing infrastructure
 
-Using the Serverless Framework can significantly reduce the operational overhead and speed up the development process for serverless applications.
+The Serverless Framework significantly reduces the operational overhead and speeds up the process of serverless application development.
 
 # What Are Plugins in Serverless Framework?
 
-Plugins in the Serverless Framework are add-ons that enhance the framework’s capabilities. They can modify the behavior of the framework, add new commands, or integrate with other tools and services. Popular plugins include those for monitoring, security, and deployment automation. By creating custom plugins, developers can tailor the framework to meet the unique requirements of their projects.
+Serverless Framework plugins are just tools to extend the capability of the framework. They can bring changes to the behavior of the framework, add new commands, or integrate with other tools and services Some of the most used plugins are monitoring security, and deployment automation. Developers can create custom plugins to make the framework best suited to their project requirements.
 
 # Let's create a plugin
 
@@ -52,7 +52,7 @@ Note: we are not covering the test part
 
 #### Step 2: Creating the Plugin Class
 
-Every serverless plugin is a class. This class is instantiated with a serverless object and a set of options.
+Every serverless plugin is a class that is instantiated with two arguments: the serverless object and a set of options.
 
 In src/index.js, define the plugin class:
 
@@ -74,11 +74,11 @@ class MyServerlessPlugin {
 module.exports = MyServerlessPlugin;
 ```
 
-Don't worry about the `hooks` and `commands` for now. We'll look into them later, as they are the most crucial part of the plugin system.
+Don't worry about the `hooks` and `commands` here yet; we'll get to them after we've done the most important part of setting up the plugin system.
 
 #### Step 3: Adding Functionality to the Plugin
 
-Extend the plugin by hooking into Serverless Framework lifecycle events and adding custom commands:
+Extend your plugin by hooking in lifecycle events of Serverless Framework, adding your custom commands:
 
 ```javascript
 class MyServerlessPlugin {
@@ -113,7 +113,7 @@ You can see these commands when you run `serverless --help`.
 
 #### Step 4: Testing the Plugin
 
-Now in another directory create a test Serverless project, install, and configure your plugin:
+Now create a test serverless project in another directory, also install and configure your plugin:
 
 ```bash
 $ serverless
@@ -131,7 +131,8 @@ plugins:
   - my-serverless-plugin
 ```
 
-Now check if the plugin is configured correctly. To check it just run the below command and you will see `mycommand` in the list.
+Now, test if the plugin is configured correctly. To test, run the command given below, and you should see `mycommand` in the list.
+
 
 ```bash
 serverless --help
@@ -145,7 +146,7 @@ serverless mycommand
 
 # Commands
 
-Commands in the Serverless Framework plugins provide custom functionality that can be executed through the Serverless CLI. By defining commands, you can extend the Serverless Framework with new capabilities tailored to your specific needs.
+Serverless Framework plugins can define commands, adding custom functionality later to be executed via the Serverless CLI. By defining commands, you can extend the Serverless Framework with new capabilities tailored to your specific use case.
 
 #### Defining Commands
 
@@ -180,7 +181,7 @@ module.exports = MyServerlessPlugin;
 
 #### Command Options and Lifecycle events
 
-Commands can also accept options, which allow users to pass parameters when executing the command. Options are defined within the command object.
+Commands can also accept options. Options allow you to pass parameters at the time of executing a particular command. Options are defined within the command object.
 
 ```javascript
 this.commands = {
@@ -235,11 +236,11 @@ this.hooks = {
 
 #### Provider-specific plugins
 
-Plugins can be provider specific, which means that run only with a specific provider.
+Plugins can be provider specific, that means they run only with a particular provider.
 
-Note: Binding a plugin to a provider is optional. Serverless will always consider your plugin if you don't specify a provider.
+Note: Binding a provider to a plugin is optional. Serverless will always consider your plugin if you don't specify a provider.
 
-To bind to a specific provider, retrieve it and set the this.provider property in the plugin constructor:
+To bind with a specified provider, retrieve it, and set the this.provider property in the constructor of the plug-in:
 
 ```javascript
 class MyServerlessPlugin {
@@ -254,11 +255,11 @@ class MyServerlessPlugin {
 
 # Let's build something
 
-Now that you've got the basics down, let's create something practical. We'll enhance the serverless capabilities by adding a `get-stack` command. This command will allow us to retrieve information about a stack using the AWS describeStacks command.
+Now that you know the basics, let's do something practical. We'll add more to enhance the serverless capabilities of our tools by adding a `get-stack` command. This way, we can retrieve information about the stack via the AWS describeStacks command.
 
-To start, we'll create a class and include a provider for AWS. Then, we'll add a custom command with a lifecycle event.
+First, we will create a class and include a provider for AWS. Then, we will add a custom command with a life cycle event. 
 
-The `serverless` parameter grants access to all the methods provided by Serverless. You can learn more about its capabilities in the official documentation.
+The `serverless` parameter grants you access to all the methods provided by Serverless. Refer to the official documentation for other capabilities. 
 
 ```javascript
 class MyServerlessPlugin {
@@ -291,7 +292,7 @@ class MyServerlessPlugin {
     }
 ```
 
-Now that we have a provider set up, we're equipped to execute various AWS commands using this provider. This means we can now run all the commands associated with AWS seamlessly.
+Now we have a provider prepared, so we will be able to execute different AWS commands with this provider. That means now all the commands with respect to AWS can be executed without problems.
 
 ```javascript
   async getStackName() {
