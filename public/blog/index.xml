@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Shubham Lad</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on Shubham Lad</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Oct 2024 18:56:00 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lock It or Lose It: Avoiding Race Conditions in Distributed Systems</title>
+      <link>http://localhost:1313/blog/lock-it-or-lose-it/</link>
+      <pubDate>Mon, 21 Oct 2024 18:56:00 +0530</pubDate>
+      <guid>http://localhost:1313/blog/lock-it-or-lose-it/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHRwYXQ0em14ODI5OGR6bWkwMTVuNDQ4Z2l5dXFsYnpzODN5cmJ1eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdFvSAgvmXq6n2o/giphy.gif&#34; alt=&#34;lock-it&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hey folks! 👋 Ever dealt with that frustrating feeling when two things try to happen at once, and everything ends up in a mess? That’s exactly what race conditions do in distributed systems! But don’t worry—today, I’ll walk you through how &lt;strong&gt;pessimistic locking&lt;/strong&gt; steps in to save the day. We’ll keep things simple and easy to follow. Ready? Let’s jump in!&lt;/p&gt;&#xA;&lt;h2 id=&#34;whats-a-race-condition-and-why-should-you-care&#34;&gt;What’s a Race Condition? And Why Should You Care?&lt;/h2&gt;&#xA;&lt;p&gt;Imagin this: You and your friend both try to withdraw cash from the same account, at the exact same time. There’s only ₹5,000 in the account, but somehow, both of you manage to withdraw ₹5,000 each. That’s double the money! 🎩✨ While this might sound great at first, it’s a nightmare for banks and a perfect example of a &lt;strong&gt;race condition&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Learning from mistakes - Revert/Reset the branch in right way.</title>
+      <link>http://localhost:1313/blog/git_reset_right_way/</link>
+      <pubDate>Tue, 18 Jun 2024 13:02:54 +0530</pubDate>
+      <guid>http://localhost:1313/blog/git_reset_right_way/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXdvN2Z4NDNxanB2cmZmbDRjOGFmZTF2eDE2Z3YzZTZhb292M3F4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TWTCdemH9OoEmx3iYq/giphy-downsized.gif&#34; alt=&#34;reset giphy&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Warning: this is going to be a long post. Grab yourself some coffee, get comfortable, and start reading.&lt;/p&gt;&#xA;&lt;p&gt;Of course, if you are a developer, mistakes happen. This also happened in my last project. We were working on one big module, which has a lot of commits and tons of code changes. We were ready with the module after lots of hard work. 🥳 Finally, the day came when our feature branch merged with the staging. Everything was going perfectly well until one fine morning when my manager told me that we had to roll back all the changes that we pushed because the client wanted to prioritize some other module, and the testing team was investing more time into the testing of our module.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating a Plugin for Serverless Framework</title>
+      <link>http://localhost:1313/blog/serverless_plugin/</link>
+      <pubDate>Mon, 10 Jun 2024 09:40:55 +0530</pubDate>
+      <guid>http://localhost:1313/blog/serverless_plugin/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExaHpzdDRranNzdXRxOGw1dWJtb3ZxbXVrcndiaXc5Nzk3NjBweDh2MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QvGCMeHuP1vLYl2hLb/giphy-downsized.gif&#34; alt=&#34;plugin&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Working on a project in my company brought forward the need to customize this open-source serverless plugin, &lt;code&gt;serverless-appsync-plugin&lt;/code&gt; further, to match our requirements. The deeper I went through the plugin, the more interested I became to discover more intricacies associated with it. In the process, I learned a few things that go into writing a serverless plugin. In this article, I will share some basic ideas to help you get started with developing your plugin.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Network Address Translation (NAT): Bridging the Gap in IP Addressing</title>
+      <link>http://localhost:1313/blog/what_is_nat/</link>
+      <pubDate>Tue, 24 Oct 2023 13:34:33 +0530</pubDate>
+      <guid>http://localhost:1313/blog/what_is_nat/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/l0Hlwi7KzoajIJTI4/giphy.gif&#34; alt=&#34;NAT&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Network Address Translation (NAT) is a service used in routers to facilitate the translation of one set of IP addresses to another. It serves a vital role in preserving the limited pool of public IPv4 addresses  by assigning single public IP to multiple devices connected to the network. Let&amp;rsquo;s delve into the intricacies of NAT, examining its core types and functions, while exploring its limitations and the emergence of IPv6.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>OSI 7-Layer Model - Part 1</title>
+      <link>http://localhost:1313/blog/osi_layers_part_1/</link>
+      <pubDate>Sat, 21 Oct 2023 11:14:04 +0530</pubDate>
+      <guid>http://localhost:1313/blog/osi_layers_part_1/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2NhN2gyM25nMGdjMHlqYmF3bnc4bHRxaWptdHVoZ3dsandtZW11bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yvqRaXlOsc068DDTzt/giphy.gif&#34; alt=&#34;Let&amp;rsquo;s find out&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;layer-stack&#34;&gt;Layer stack:&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/OSI_layers_feknxa.png&#34; alt=&#34;image&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the OSI model, &lt;strong&gt;the media layers are the bottom three layers, and the host layers are the top four layers&lt;/strong&gt;. The media layers define hardware orientation, such as: Routing, Switching, Cable specifications. &lt;/p&gt;&#xA;&lt;p&gt;The host layers define software that implements network services. The transport layer is the first of the four host layers. This layer manages the transmission of data between nodes, including: &lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Ensuring that data arrives in the correct sequence&lt;/li&gt;&#xA;&lt;li&gt;Correcting any errors&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;layer-1---physical&#34;&gt;Layer 1 - Physical&lt;/h2&gt;&#xA;&lt;p&gt;The physical layer, or layer 1, is &lt;strong&gt;the first and lowest layer in the OSI model of computer networking&lt;/strong&gt;. It&amp;rsquo;s also known as the hardware layer.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Let&#39;s understand: Polyfills and transpilers</title>
+      <link>http://localhost:1313/blog/transpilers_and_polifills/</link>
+      <pubDate>Tue, 01 Aug 2023 01:10:53 +0530</pubDate>
+      <guid>http://localhost:1313/blog/transpilers_and_polifills/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcnI0cmN6ZnY5YjVlaHU5bXlvZzJybXJtOG0zZWlmMzh6ZzI0cHJjeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Uu02NeT9btwL0yhgxa/giphy.gif&#34; alt=&#34;transpiler&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;While developing web applications you might have come across these words in your JavaScript code.&lt;/p&gt;&#xA;&lt;p&gt;As JavaScript evolves, new ideas and features are proposed for the language. These proposals are reviewed and if considered good, they are added to the official list of changes &lt;a&#xA;&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;&#x9;href = &#34;https://tc39.github.io/ecma262/&#34;&#xA;&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&#x9;target = &#34;_blank&#34;&#xA;&#x9;&#x9;rel = &#34;nofollow noopener noreferrer&#34;&#xA;&#xA;&#x9;&#x9;&gt;&#xA;&#x9;&#xA;&#x9;&lt;span&gt;&#xA;&#x9;&#x9;https://tc39.github.io/ecma262/&#xA;&#x9;&lt;/span&gt;&#xA;&#xA;&lt;/a&gt;. Then, they become part of the JavaScript &lt;a&#xA;&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;&#x9;href = &#34;https://www.ecma-international.org/publications-and-standards/standards/ecma-262/&#34;&#xA;&#xA;&#x9;&#x9;&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&#xA;&#xA;&#x9;&#x9;target = &#34;_blank&#34;&#xA;&#x9;&#x9;rel = &#34;nofollow noopener noreferrer&#34;&#xA;&#xA;&#x9;&#x9;&gt;&#xA;&#x9;&#xA;&#x9;&lt;span&gt;&#xA;&#x9;&#x9;specification&#xA;&#x9;&lt;/span&gt;&#xA;&#xA;&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Let&#39;s begin the journey</title>
+      <link>http://localhost:1313/blog/lets_begin/</link>
+      <pubDate>Fri, 23 Jun 2023 12:17:20 +0530</pubDate>
+      <guid>http://localhost:1313/blog/lets_begin/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzc3M2FzMGtvb3doMWx3N2txbXc1YWRmNGhnZThtYzJsdjdkM2hzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3orieKSJONEWV51x3q/giphy.gif&#34; alt=&#34;architectural patterns&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;hello-hello--&#34;&gt;Hello Hello 👋🏼 !!&lt;/h1&gt;&#xA;&lt;p&gt;Hey everyone! Just wanted to share some exciting news about my personal website. Today, I finally settled on a theme that perfectly reflects what I&amp;rsquo;ve always envisioned. I&amp;rsquo;ve been wanting a platform where I can not only showcase my achievements but also share my knowledge with others.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve spent quite some time exploring different frameworks, and after lots of trial and error, I&amp;rsquo;ve ultimately chosen to go with Hugo. It&amp;rsquo;s a fantastic tool that allows me to easily create and manage my website.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>OSI 7-Layer Model - Part 1 - Shubham Lad</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="
+Layer stack:
+
+In the OSI model, the media layers are the bottom three layers, and the host layers are the top four layers. The media layers define hardware orientation, such as: Routing, Switching, Cable specifications. 
+The host layers define software that implements network services. The transport layer is the first of the four host layers. This layer manages the transmission of data between nodes, including: 
+
+Ensuring that data arrives in the correct sequence
+Correcting any errors
+
+Layer 1 - Physical
+The physical layer, or layer 1, is the first and lowest layer in the OSI model of computer networking. It&rsquo;s also known as the hardware layer." />
+  <meta name="author" content="Brief Description" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/733ed220a859026ff7dba915d2c1c693?s=160&amp;d=identicon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.135.0">
+
+  
+  
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Shubham Lad</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/blog/"
+        >📝 Blog</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/papershelf/"
+        >📑 Papershelf</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/bookshelf/"
+        >📚 Bookshelf</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >😎 About Me</a
+      >
+      
+    </nav>
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">OSI 7-Layer Model - Part 1</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Oct 21, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p><img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2NhN2gyM25nMGdjMHlqYmF3bnc4bHRxaWptdHVoZ3dsandtZW11bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yvqRaXlOsc068DDTzt/giphy.gif" alt="Let&rsquo;s find out"></p>
+<h2 id="layer-stack">Layer stack:</h2>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/OSI_layers_feknxa.png" alt="image"></p>
+<p>In the OSI model, <strong>the media layers are the bottom three layers, and the host layers are the top four layers</strong>. The media layers define hardware orientation, such as: Routing, Switching, Cable specifications. </p>
+<p>The host layers define software that implements network services. The transport layer is the first of the four host layers. This layer manages the transmission of data between nodes, including: </p>
+<ul>
+<li>Ensuring that data arrives in the correct sequence</li>
+<li>Correcting any errors</li>
+</ul>
+<h2 id="layer-1---physical">Layer 1 - Physical</h2>
+<p>The physical layer, or layer 1, is <strong>the first and lowest layer in the OSI model of computer networking</strong>. It&rsquo;s also known as the hardware layer.</p>
+<p>Layer 1 (Physical) specifications define the transmission and reception of RAW BIT STREAMS between a device and a SHARED physical medium. It defines things like voltage levels, timing, rates, distances, modulation and connectors</p>
+<p>The physical layer is responsible for:</p>
+<ul>
+<li>The physical connection between devices</li>
+<li>Data transmission over the physical medium</li>
+</ul>
+<p>Physical medium can be:</p>
+<ul>
+<li>Copper (electrical)</li>
+<li>Fibre (light)</li>
+<li>WIFI (RF)</li>
+</ul>
+<p>Note: Layer 1 device can only understand layer 1, and Layer 3 device understand all the layers beneath.</p>
+<p><strong>HUB</strong>: Connects multiple devices on physical layer, It has only one job anything received on any port is transmitted on every other port including errors and collisions.</p>
+<p>Note: There is no individual address for the device, all data is processed by all devices. If multiple devices transmit data at once a collision occurs which will corrupt the data</p>
+<p>L1 has no media access control and no collision detection. Because of this Layer 1 cannot scale well.</p>
+<h3 id="layer-2---data-link">Layer 2 - Data Link</h3>
+<p>Layer 2 operates directly above Layer 1 in network communication. In this context, the data link layer plays a vital role in managing data transfer. It takes the data packets received from the network layer and dissects them into smaller units called frames. Within the data link layer, the header is crucial as it contains information about the source and destination MAC (Media Access Control) addresses. It&rsquo;s here that data is converted into binary format (1s and 0s) and prepared for transmission at the physical layer.</p>
+<p>The MAC address is a unique combination of alphanumeric characters assigned to each network card. It&rsquo;s often referred to as a physical address because it&rsquo;s permanently embedded in the network card, ensuring it remains constant.</p>
+<p>One essential function of the data link layer is to enable multiple systems to share a common communication medium, known as a shared media. This is facilitated by mechanisms like CSMA/CD (Carrier Sense Multiple Access with Collision Detection).</p>
+<p>Under CSMA/CD, when multiple devices attempt to transmit data simultaneously and a collision occurs, each device involved detects the collision. Following collision detection, these devices initiate a random waiting period before retransmitting. The likelihood of multiple devices selecting the same delay is extremely low, increasing the chances of successful data transmission during retransmission.</p>
+<p>In modern networking, we&rsquo;ve moved away from shared bus topologies to using switches, which are Layer 2 devices. Switches are equipped to intelligently direct network traffic to the appropriate destination. They achieve this by learning the MAC addresses of connected devices. When a computer connects to the network through a switch, it provides its MAC address to the switch. This way, the switch can efficiently forward data to the correct computer by referring to its MAC address.</p>
+<p>These switches, with their ability to learn and route traffic based on MAC addresses, have greatly improved network efficiency and reduced unnecessary data transmissions.</p>
+<h3 id="layer-3---network">Layer 3 - Network</h3>
+<p>Layer 3 networking, often referred to as the network layer, plays a crucial role in the process of routing data across different networks and within the same network. It&rsquo;s responsible for determining the best path for data packets to travel from the source to the destination. To explain this in detail, I&rsquo;ll break down the key components and processes involved, including ARP (Address Resolution Protocol), routes, route tables, routers, IP addresses with subnet masks, packet generation, and the data delivery process.</p>
+<p><strong>1. IP Addresses with Subnet Masks:</strong> The foundation of Layer 3 networking is the use of IP (Internet Protocol) addresses, both for the source and destination devices. IP addresses are hierarchical and structured, allowing for efficient routing of data. Subnet masks are used to divide IP addresses into network and host portions. For example, an IP address like &ldquo;192.168.1.10&rdquo; with a subnet mask of &ldquo;255.255.255.0&rdquo; indicates that the first three segments (192.168.1) represent the network, and the last segment (10) is for a specific host within that network.</p>
+<p><strong>2. ARP (Address Resolution Protocol):</strong> ARP is used to map an IP address to a physical MAC (Media Access Control) address on a local network. When a device needs to communicate with another device on the same network, it uses ARP to discover the MAC address associated with the target IP address.</p>
+<p><strong>3. Routing:</strong> Routing is the process of determining the optimal path for data packets to travel between networks. It&rsquo;s like deciding the best route on a map. Routers are the devices responsible for routing. They make these decisions based on the destination IP address found in the packet header.</p>
+<p><strong>4. Route Tables:</strong> A router uses a route table to determine where to forward incoming packets. This table contains information about various networks and how to reach them. Each entry includes a network address, a subnet mask, the next-hop router&rsquo;s IP address, and an interface through which the router can forward packets to reach the destination network.</p>
+<p><strong>5. Packet Generation:</strong> When a device wants to send data to another device, it generates packets. These packets contain the source and destination IP addresses, among other information, in the packet header.</p>
+<p>Here&rsquo;s a simplified ASCII diagram of an IP packet&rsquo;s header:</p>
+<pre tabindex="0"><code>   0                   1                   2                   3
+   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  | Version  |    IHL   | Type of Service |      Total Length     |
+  | (4 bits) | (4 bits) |    (8 bits)     |        (16 bits)      |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  | Identification            |  Flags   |     Fragment Offset    |
+  |     (16 bits)             | (3 bits) |        (13 bits)       |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |  Time to Live  |  Protocol     |         Header Checksum      |
+  |     (8 bits)   |   (8 bits)    |          (16 bits)           |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |                        Source IP Address                      |
+  |                            (32 bits)                          |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  |                      Destination IP Address                   |
+  |                            (32 bits)                          |
+  +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+</code></pre><p><strong>6. Data Flow Over Different Networks:</strong></p>
+<ul>
+<li>Suppose a device with IP address 192.168.1.10 wants to send data to a device with IP address 203.0.113.20.</li>
+<li>The sender checks if the destination is on the same network by applying a logical AND operation with its subnet mask. If they are on the same network, it communicates directly without a router.</li>
+<li>If the devices are on different networks, the sender forwards the packet to its default gateway, which is typically a router.</li>
+<li>The router consults its route table to determine the best path to reach the destination network.</li>
+<li>The router encapsulates the packet in a frame (Ethernet frame, for example) with the MAC address of the next-hop router.</li>
+<li>The frame is transmitted to the next-hop router, which performs the same routing process.</li>
+<li>This continues until the data reaches the destination network.</li>
+</ul>
+<p><strong>7. Data Delivery at the Destination:</strong></p>
+<ul>
+<li>The final router in the path delivers the frame to the destination device within the local network.</li>
+<li>The destination device&rsquo;s network interface listens for frames addressed to its MAC address and receives the frame.</li>
+<li>The destination device then decapsulates the frame, revealing the IP packet.</li>
+<li>The device checks the IP packet&rsquo;s destination address, and if it matches, it processes the data contained within the packet.</li>
+</ul>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blog/what_is_nat/"
+      ><span class="mr-1.5">←</span><span>Network Address Translation (NAT): Bridging the Gap in IP Addressing</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blog/transpilers_and_polifills/"
+      ><span>Let&#39;s understand: Polyfills and transpilers</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Shubham Lad</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Learning from mistakes - Revert/Reset the branch in right way. - Shubham Lad</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="
+Warning: this is going to be a long post. Grab yourself some coffee, get comfortable, and start reading.
+Of course, if you are a developer, mistakes happen. This also happened in my last project. We were working on one big module, which has a lot of commits and tons of code changes. We were ready with the module after lots of hard work. 🥳 Finally, the day came when our feature branch merged with the staging. Everything was going perfectly well until one fine morning when my manager told me that we had to roll back all the changes that we pushed because the client wanted to prioritize some other module, and the testing team was investing more time into the testing of our module." />
+  <meta name="author" content="Brief Description" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/733ed220a859026ff7dba915d2c1c693?s=160&amp;d=identicon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.135.0">
+
+  
+  
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Shubham Lad</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/blog/"
+        >📝 Blog</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/papershelf/"
+        >📑 Papershelf</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/bookshelf/"
+        >📚 Bookshelf</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >😎 About Me</a
+      >
+      
+    </nav>
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Learning from mistakes - Revert/Reset the branch in right way.</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Jun 18, 2024</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p><img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXdvN2Z4NDNxanB2cmZmbDRjOGFmZTF2eDE2Z3YzZTZhb292M3F4YSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TWTCdemH9OoEmx3iYq/giphy-downsized.gif" alt="reset giphy"></p>
+<p>Warning: this is going to be a long post. Grab yourself some coffee, get comfortable, and start reading.</p>
+<p>Of course, if you are a developer, mistakes happen. This also happened in my last project. We were working on one big module, which has a lot of commits and tons of code changes. We were ready with the module after lots of hard work. 🥳 Finally, the day came when our feature branch merged with the staging. Everything was going perfectly well until one fine morning when my manager told me that we had to roll back all the changes that we pushed because the client wanted to prioritize some other module, and the testing team was investing more time into the testing of our module.</p>
+<p>I said no problem! I will do it 👍</p>
+<p>We started the dangerous process of reverting the commits that we pushed. However, we thought: It&rsquo;s Git, it will be simple. We selected the commit just before our merge request, and we reverted our branch to that one. Everything was all right; we pushed the changes. But in the evening, our test team started reporting errors.</p>
+<p>We started analyzing the errors, and we found out that our revert, where we picked a commit just from last week, has, deleted some of the commits from the 11 months. We screwed up.</p>
+<p>Then I started reading about this git, exploring the commits, how git keeps track of the commits. After some study, I came to know that we made the wrong choice of commit for reset. We had a backup branch, and again, we restored everything. And this time around, I did it the right way. and It Worked.</p>
+<p>So today, I am sharing my learning from all this mess so you will not face these issues.</p>
+<h1 id="so-how-do-we-reverse-the-changes-merged-into-the-branch">So, how do we reverse the changes merged into the branch?</h1>
+<p>So there are actually two methods to revert your changes from the branch</p>
+<ol>
+<li>use the revert command - safe one</li>
+<li>use the reset command - 😈</li>
+</ol>
+<p>But, before discussing this, let&rsquo;s view some of the essential things in Git.</p>
+<h1 id="parent-commit">Parent Commit</h1>
+<p>Have you ever had thoughts on what is parent commit?</p>
+<p>Check out this diagram and, by using it for reference, try to understand the points given below.</p>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1718611753/commit_parent_kbijqn.webp" alt="Parent Commits"></p>
+<p>The parent commit is the commit that this commit is based on. Typically:</p>
+<ul>
+<li>When you <code>git commit</code> usually, the current commit becomes the parent commit of the new commit introduced by the command.</li>
+<li>When you <code>git merge</code> two commits (or branches, whatever) without fast-forwarding, a new commit will be created with <em>both</em> commits (the latest commit from the main branch and the latest commit from the feature branch) as parents.</li>
+</ul>
+<blockquote>
+<p>Note that more than two commits can be merged this way, so the new commit potentially has more than one parent.</p>
+</blockquote>
+<h1 id="1-revert-command">1. Revert command</h1>
+<p>Let&rsquo;s talk about the <code>revert</code> command: how we use it, what problems we might be facing in the future using it, and how to resolve them.</p>
+<p>So, you can think about it as an operation to undo using <code>git revert</code>, but in a different way than we are used to with normal undo. This operation will not manipulate our git history; that is to say, it won&rsquo;t remove any previous commits. Instead, it will create a new commit with the changes reverted.</p>
+<p>This is considered to be the safest option for reverting your changes in a collaborative environment, as it will not break the Git history.</p>
+<h3 id="how-git-revert-works">How <code>git revert</code> works</h3>
+<p>Unlike the <code>git reset</code> command, where we move the <code>HEAD</code> and branch ref pointers to a specified commit, the <code>git revert</code> command uses that specific commit to invert the changes and effectively makes a new reverse commit that only removes the modifications done by the commit. The ref pointers are then updated to point at the new revert commit, making it the tip of the branch.</p>
+<h4 id="1-single-commit">1. Single Commit</h4>
+<p>In most cases, its as simple as running <code>git revert &lt;commit-sha&gt;</code></p>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1718623452/revert_single_commit_lyfdzg.webp" alt="revert_single_commit"></p>
+<p>Example: Let&rsquo;s say you are working on an <code>example-feature</code> branch, and you want to revert <code>C</code> commit, then run the command: <code>git revert cea02f0</code>. This will create a new revert commit <code>R</code> with all the changes inversed.</p>
+<p>Notice the parent of this new commit.</p>
+<h4 id="2-merge-commit">2. Merge Commit</h4>
+<p>It&rsquo;s simple, right? But when it comes to reverting merge commits, things get a little confusing. Simply doing a revert on a merge commit will fail:</p>
+<p>Let&rsquo;s try with our merge commit <code>M</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>❯ git revert dc8aff641468dc85d22f499c1c4c93a0d4fcaf58
+</span></span><span style="display:flex;"><span>error: commit dc8aff641468dc85d22f499c1c4c93a0d4fcaf58 is a merge but no -m option was given.
+</span></span><span style="display:flex;"><span>fatal: revert failed
+</span></span></code></pre></div><p>Why this happened? See the diagram below and notice our merge commit. It has two parents. Git is asking for the mainline number and, in other words, the parent number.</p>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1718623452/revert_merge_commit_tcjfjo.webp" alt="revert_merge_commit"></p>
+<p>As we saw a commit’s parent is the commit on top of which the commit is applied. In contrast to other commits, a merge commit has two parents.</p>
+<p>The branch <code>example-feature</code> is checked out from the main (<code>X</code> commit) and later merged into the branch <code>main</code> with a merge commit <code>M</code>. In this case, <code>M</code> has two parents.</p>
+<ul>
+<li>Parent 1: X (f572d39)</li>
+<li>Parent 2: C (cea02f0)</li>
+</ul>
+<p>If one is to revert the changes that were applied on Branch <code>main</code> because of the merge <code>M</code>, they want the mainline as <code>X</code>, so <code>Parent 1</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>❯ git revert dc8aff641468dc85d22f499c1c4c93a0d4fcaf58 -m <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>What Git does is it reverts the diff between <code>M</code> and <code>X</code> and creates a new revert commit, <code>R</code>.</p>
+<h4 id="problem-with-revert">Problem with Revert</h4>
+<p>Now let&rsquo;s assume you reverted your merge changes because of some reason and now after fixes and some changes you are ready to merge your feature branch again in the main branch, then good luck. You will only see the new chnages that you made but you will not see any previous changes you did in that branch before merge <code>M</code>.</p>
+<p>It&rsquo;s because &ldquo;revert&rdquo; undoes the data changes, but it&rsquo;s very much <em>not</em> an &ldquo;undo&rdquo; in the sense that it doesn&rsquo;t undo the effects of a commit on the repository history.</p>
+<p>So if you think of &ldquo;revert&rdquo; as &ldquo;undo&rdquo;, then you&rsquo;re going to always miss this part of reverts. Yes, it undoes the data, but no, it doesn&rsquo;t undo history.</p>
+<p>In such a situation, you would want to first revert the previous revert, which would make the history look like this:</p>
+<pre tabindex="0"><code> ---X------------------M---R---xR---W---
+     \                /            /
+       ---A---B---C------D--------
+</code></pre><p>where <code>xR</code> is the revert of <code>R</code>.  Such a &ldquo;revert of the revert&rdquo; can be done with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>❯ git revert R
+</span></span></code></pre></div><p>Now you can merge your feature branch with main branch, as a effect of revert all your previously merged changes will be present now on the main branch.</p>
+<h1 id="2-reset-command">2. Reset command</h1>
+<p>The <code>git reset</code> command is used to undo changes in your repository. More specifically, it moves the HEAD pointer back to a commit, effectively taking the state of the working directory back to that commit.</p>
+<p>Three basic categories of resets:</p>
+<ul>
+<li>
+<p><strong>Soft Reset (<code>--soft</code>)</strong>: Moves HEAD to the given commit but does not touch the index or working directory.</p>
+</li>
+<li>
+<p><strong>Mixed Reset (<code>--mixed</code>)</strong>: Moves the HEAD where specified to a commit, updates the index without changing the working directory.</p>
+</li>
+<li>
+<p><strong>Hard Reset (<code>--hard</code>)</strong>: Moves the HEAD to the specified commit and updates both the index and the working directory to match that commit.</p>
+</li>
+</ul>
+<p>Suppose you would like to reset all the merged changes on the <code>main</code> branch. To do so, we will refer to the diagram as follows:.</p>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1718623452/reset_commit_nmguay.webp" alt="reset_commit"></p>
+<p>So here we had to do a hard reset of all the changes committed by the commit <code>M</code>. Check the diagram above: here, after we merged our <code>example-feature</code> branch into <code>main</code>, the particular merge commit <code>M</code> recorded two parents.</p>
+<ul>
+<li>Parent 1: X (f572d39)</li>
+<li>Parent 2: C (cea02f0)</li>
+</ul>
+<p>This we saw previously, and we also know that before merging our feature branch, the <code>main</code> branch was on <code>X</code> commit. So if we want to reset all the changes we added because of the merge request, we need to reset this branch to <code>Parent 1</code> which is up to commit <code>X</code>.</p>
+<p>Now that you have the exact commit to reset, run the following command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>❯ git reset --hard f572d39ab390c2f8bb442363d2df870b6adb6488
+</span></span></code></pre></div><p>As mentioned, <code>--hard</code> will move the HEAD to the <code>f572d39</code> commit and update the index and the working directory to match that commit.</p>
+<h4 id="potential-risks">Potential Risks</h4>
+<p>Use of <code>git reset</code> has some risks, particularly if used carelessly:</p>
+<ol>
+<li>
+<p><strong>Data Loss</strong>: Changes in the working directory that are not committed will be lost after doing <code>git reset --hard</code>. Ensure that you have committed or stashed your changes that matter before you run a hard reset.</p>
+</li>
+<li>
+<p><strong>History Rewriting</strong>: Reset changes the commit history. This might be a nightmare in a shared development environment since if others have pulled or pushed in the same branch, this will make history inconsistent and makes the collaboration harder.</p>
+</li>
+<li>
+<p><strong>Unintended State</strong>: This resetting can lead to your repository being in an unintended state if, say, you reset by mistake to the wrong commit. Always cross-check the commit hash you are resetting to and be clear about what kind of reset is happening.</p>
+</li>
+</ol>
+<blockquote>
+<p>Actual Scenario: We had to face this third risk. With the wrong selection of commits, some of the changes made 11 months ago were lost, but because we had a backup of the branch, all changes were recovered.</p>
+</blockquote>
+<p>References:</p>
+<ul>
+<li><a
+
+	
+	
+		href = "https://github.com/git/git/blob/master/Documentation/howto/revert-a-faulty-merge.txt"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Revert a faulty merge
+	</span>
+
+</a></li>
+<li><a
+
+	
+	
+		href = "https://www.atlassian.com/git/tutorials/undoing-changes/git-reset"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Git reset
+	</span>
+
+</a></li>
+<li><a
+
+	
+	
+		href = "https://stackoverflow.com/a/38239664"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		Madara's Ghost comment
+	</span>
+
+</a></li>
+<li><a
+
+	
+	
+		href = "https://blog.experteer.engineering/what-are-parents-on-git-merge-commits.html"
+
+		
+
+	
+
+	
+
+		target = "_blank"
+		rel = "nofollow noopener noreferrer"
+
+		>
+	
+	<span>
+		What are parents on a merge commit?
+	</span>
+
+</a></li>
+</ul>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blog/lock-it-or-lose-it/"
+      ><span class="mr-1.5">←</span><span>Lock It or Lose It: Avoiding Race Conditions in Distributed Systems</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blog/serverless_plugin/"
+      ><span>Creating a Plugin for Serverless Framework</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Shubham Lad</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready lg:text-base"
+  style="--bg: #faf8f1"
+  lang="en-us"
+>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>Network Address Translation (NAT): Bridging the Gap in IP Addressing - Shubham Lad</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="
+Network Address Translation (NAT) is a service used in routers to facilitate the translation of one set of IP addresses to another. It serves a vital role in preserving the limited pool of public IPv4 addresses  by assigning single public IP to multiple devices connected to the network. Let&rsquo;s delve into the intricacies of NAT, examining its core types and functions, while exploring its limitations and the emergence of IPv6." />
+  <meta name="author" content="Brief Description" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="http://localhost:1313/main.min.css" />
+
+  
+  <script
+    defer
+    src="http://localhost:1313/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="http://localhost:1313/theme.png" />
+
+  
+  
+  
+  <link rel="preload" as="image" href="https://www.gravatar.com/avatar/733ed220a859026ff7dba915d2c1c693?s=160&amp;d=identicon" />
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  <link rel="icon" href="http://localhost:1313/favicon.ico" />
+  <link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.135.0">
+
+  
+  
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[4.5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-[1px] text-2xl font-semibold"
+      href="http://localhost:1313/"
+      >Shubham Lad</a
+    >
+    <div
+      class="btn-dark text-[0] ml-4 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[4.5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = '#faf8f1'.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/blog/"
+        >📝 Blog</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/papershelf/"
+        >📑 Papershelf</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/bookshelf/"
+        >📚 Bookshelf</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/about/"
+        >😎 About Me</a
+      >
+      
+    </nav>
+    
+
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-9rem)] max-w-3xl px-8 pb-16 pt-12 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-16">
+    <h1 class="!my-0 pb-2.5">Network Address Translation (NAT): Bridging the Gap in IP Addressing</h1>
+
+    
+    <div class="text-sm antialiased opacity-60">
+      
+      <time>Oct 24, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><p><img src="https://i.giphy.com/media/l0Hlwi7KzoajIJTI4/giphy.gif" alt="NAT"></p>
+<p>Network Address Translation (NAT) is a service used in routers to facilitate the translation of one set of IP addresses to another. It serves a vital role in preserving the limited pool of public IPv4 addresses  by assigning single public IP to multiple devices connected to the network. Let&rsquo;s delve into the intricacies of NAT, examining its core types and functions, while exploring its limitations and the emergence of IPv6.</p>
+<h3 id="limitations-of-ipv4">Limitations of IPv4:</h3>
+<ul>
+<li>IPv4, created at a time when the internet&rsquo;s vastness wasn&rsquo;t fully anticipated, engineers didn’t realise how big internet will become.</li>
+<li>There are over 4,294,967,296 public IPv4 addresses. This limitation, with less than one public IP address per person globally, posed significant challenges.</li>
+</ul>
+<p>To overcome these challenge, engineers devised the concept of private IP addresses and introduced NAT, revolutionizing network addressing.</p>
+<h3 id="two-types-of-ip">Two types of IP:</h3>
+<p><strong>Public:</strong>
+- they are publicly registered
+- You must have public IP to access internet
+<strong>Private</strong>
+- They are not publicly registered
+- you can&rsquo;t access internet with this IPs
+- they are reserved for use within local network environments, such as homes and businesses.</p>
+<p>In your home or business, you&rsquo;ve got lots of devices that want to go online, and for that, they need public IP addresses.</p>
+<p>One way to do this is by asking your internet provider for more public IPs, but that can be costly and uses up valuable public IP addresses. In fact, the demand for internet access is much higher than the number of available public IPs, so if we assigned one to each device, we&rsquo;d quickly run out.</p>
+<p>Instead, what we can do is have our router give our devices private IP addresses. When a device needs to go online, a clever system called NAT steps in. It takes our device&rsquo;s private IP and turns it into the public IP given by our internet provider, kind of like a disguise for the internet. This way, our devices can access the internet without using up all the precious public IPs.</p>
+<p>NAT handles not only the translation of private to public IP addresses but also the reverse, enabling servers from the internet to communicate with devices within the local network.</p>
+<h3 id="the-future-with-ipv6">The Future with IPv6:</h3>
+<ul>
+<li>In the future we don&rsquo;t need the NAT or private IP addresses.</li>
+<li>IPv6 is on the horizon and promises to render NAT and private IP addresses obsolete. It provides an astounding 340 undecillion unique IP addresses (that&rsquo;s 36 zeros!).</li>
+<li>In other words 670 Quadrillion per square millimetre of earth, or 50 Octillion per human alive.</li>
+<li>With IPv6, each device worldwide can have its own public IP, ensuring an abundance of addresses for virtually every purpose.</li>
+</ul>
+<h3 id="types-of-nat">Types of NAT:</h3>
+<ul>
+<li>Static NAT - This approach establishes a one-to-one mapping, connecting a single private IP to a fixed public IP address. It mirrors the operation of Internet Gateways in cloud services like AWS.</li>
+<li>Dynamic NAT - Dynamic NAT is akin to Static NAT but with a dynamic twist. Devices receive temporary public IPs from a pool, shared among devices without overlap. Depletion of the pool may disrupt internet access.</li>
+<li>Port Address Translation (PAT) - Common in home routers and known as &ldquo;Overloaded NAT,&rdquo; PAT enables multiple devices to share a single public IP. PAT replaces the source IP and port of outgoing packets with a single public IP and an allocated source port from a pool, enabling IP overloading.</li>
+</ul>
+<blockquote>
+<p>NOTE: NAT only used for IPv4</p>
+</blockquote>
+<p>Lets understand this by example:</p>
+<h3 id="static-network-address-translation">Static Network Address Translation</h3>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1717995039/STATIC_NAT_d5z3sk.png" alt="Static NAT"></p>
+<ul>
+<li>In above diagram where there are devices on the left in a private network and the public network on the right.</li>
+<li>The devices on the left have private IP addresses, which can&rsquo;t be used to send packets directly to the public internet. They need public IP addresses for that.</li>
+<li>On the right, there&rsquo;s Netflix, which has a public IP and is accessible on the public network.</li>
+<li>Now, we have a router (NAT device) that keeps a special list called a NAT table. This table connects private IPs to public IPs in a one-to-one fashion (1:1).</li>
+<li>Let&rsquo;s say your laptop wants to send a packet to Netflix. It creates a packet with its private IP (like 10.0.0.42) as the source and Netflix&rsquo;s public IP as the destination, which it got from DNS.</li>
+<li>This packet goes through our NAT device, which changes the private IP to the public IP and sends it out to Netflix. It&rsquo;s like putting on a disguise for your packet.</li>
+<li>When Netflix responds, it sends a packet with its own public IP as the source and your public IP as the destination.</li>
+<li>When this packet arrives, the NAT device changes the destination back to your private IP. It&rsquo;s like taking off the disguise.</li>
+<li>In services like AWS, this is how Internet Gateways work.</li>
+</ul>
+<h3 id="dynamic-network-address-translation">Dynamic Network Address Translation</h3>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/DYNAMIC_NAT_nwm5xf.png" alt="Dynamic NAT"></p>
+<ul>
+<li>The basic idea is similar to Static NAT, but with a twist. Here, devices don&rsquo;t get permanent public IPs.</li>
+<li>Instead, they receive temporary public IPs from a pool whenever they need to go online.</li>
+<li>In this setup, the router (the NAT device) keeps a table known as the NAT table, which connects private IPs to public IPs.</li>
+<li>Multiple devices can share the same public IP over time as long as their usage doesn&rsquo;t overlap.</li>
+<li>But if the pool of public IPs runs out, devices requesting internet access may face connectivity issues.</li>
+</ul>
+<h3 id="port-address-translation-pat">Port Address Translation (PAT)</h3>
+<p><img src="https://res.cloudinary.com/dju7jxioz/image/upload/v1717995040/PAT_wz9gn3.png" alt="PAT"></p>
+<ul>
+<li>This is the type of NAT we often find in our home routers.</li>
+<li>It enables a large number of devices to share a single public IP address (MANY: ONE).</li>
+<li>PAT operates similarly to how NATGateway functions.</li>
+<li>Here, the NAT device keeps a record of the source (private) IP and source port of outgoing packets.</li>
+<li>It then replaces the source IP with a single public IP and a public source port allocated from a pool. This process allows for IP overloading, where many private IP addresses are mapped to the same public IP.</li>
+<li>For example, when device1 wants to access Netflix, it creates a packet with a source IP and source port, along with destination IP and destination port.</li>
+<li>The NAT device intercepts this packet, replaces the private IP with the public IP, assigns a public port from the pool, and creates a mapping record in the NAT table.</li>
+<li>Now, this packet can travel on the public network because it has a public IP.</li>
+<li>When Netflix responds, the NAT gateway checks the packet&rsquo;s destination IP and port in the NAT table. When it finds a match, it replaces the destination IP and port with the private IP and port.</li>
+<li>This is how device1 receives the response packet.</li>
+<li>The same process occurs when device2 attempts to connect to the internet. Thanks to the combination of private IPs and ports, PAT efficiently allows numerous devices to share a single IP address, ensuring smooth operation.</li>
+</ul>
+<h3 id="more-about-pat">More about PAT</h3>
+<ul>
+<li>
+<p>This is the type of NAT, or Network Address Translation, commonly found in home routers, which allows a large number of devices to share a single public IP address (MANY: ONE). PAT is also known as &ldquo;overloaded NAT&rdquo; because it enables multiple private devices to use the same public IP address while distinguishing them based on the source port number.</p>
+</li>
+<li>
+<p>In a home network, several devices such as smartphones, laptops, and IoT devices often need to access the internet. However, there&rsquo;s a limited supply of public IP addresses, which are necessary for devices to communicate with servers and services on the global internet. Requesting a unique public IP address for each device would be impractical and would quickly exhaust the available pool of public IP addresses. This is where PAT comes into play.</p>
+</li>
+<li>
+<p>PAT works by keeping a record of the source (private) IP address and the source port number for each outgoing packet. When a device within the private network wants to communicate with an external server or service, PAT intercepts the packet and performs two crucial tasks:</p>
+<ol>
+<li>It replaces the source IP address of the packet with the single public IP address associated with the home router.</li>
+<li>It assigns a unique source port number from a pool of available ports to the packet.</li>
+</ol>
+</li>
+<li>
+<p>By using a combination of the private IP address and the unique source port number, PAT distinguishes packets originating from different devices. This allows multiple devices within the private network to share the same public IP address without any conflicts. When a response packet returns from an external server, PAT examines the destination port and, based on the port number, maps the packet to the corresponding device&rsquo;s private IP address and port.</p>
+</li>
+<li>
+<p>This efficient use of public IP addresses helps conserve them, especially in home or small business environments where numerous devices require internet access. PAT is the reason why a single public IP address can serve a multitude of devices simultaneously.</p>
+</li>
+<li>
+<p>It&rsquo;s important to note that while PAT is commonly used in home routers, it&rsquo;s a specific variation of NAT. NAT (Network Address Translation) is a broader concept that includes various techniques for translating between private and public IP addresses. PAT is particularly effective when a large number of devices need to share a limited pool of public IP addresses.</p>
+</li>
+</ul>
+<p>By using PAT, home networks can optimize their use of public IP addresses, ensuring that all devices can access the internet efficiently without the need for a separate public IP address for each device. This approach is a practical solution to address the limitations of the IPv4 address space and is commonly employed in modern network configurations.</p>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blog/serverless_plugin/"
+      ><span class="mr-1.5">←</span><span>Creating a Plugin for Serverless Framework</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 font-semibold no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="http://localhost:1313/blog/osi_layers_part_1/"
+      ><span>OSI 7-Layer Model - Part 1</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[4.5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-60"
+>
+  <div class="mr-auto">
+    &copy; 2024
+    <a class="link" href="http://localhost:1313/">Shubham Lad</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >✎ Paper</a
+  >
+</footer>
+
+  </body>
+</html>
