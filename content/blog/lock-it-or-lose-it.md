@@ -2,6 +2,8 @@
 title: "Lock It or Lose It: Avoiding Race Conditions in Distributed Systems"
 date: 2024-10-21T18:56:00+05:30
 draft: false
+images:
+- https://res.cloudinary.com/zeuadaprogramming/image/upload/v1729518283/Blog/w5mwx8rfwctdlxhw28xz.webp
 ---
 
 ![lock-it](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHRwYXQ0em14ODI5OGR6bWkwMTVuNDQ4Z2l5dXFsYnpzODN5cmJ1eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdFvSAgvmXq6n2o/giphy.gif)
