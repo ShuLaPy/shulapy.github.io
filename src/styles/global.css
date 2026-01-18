@@ -5,15 +5,15 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #fdfdfd;
+  --background: #faf8f1;
   --foreground: #282728;
-  --accent: #006cac;
+  --accent: #171717;
   --muted: #e6e6e6;
-  --border: #ece9e9;
+  --border: #e8e6e6;
 }
 
 html[data-theme="dark"] {
-  --background: #212737;
+  --background: #161616;
   --foreground: #eaedf3;
   --accent: #ff6b01;
   --muted: #343f60;
@@ -35,16 +35,22 @@ html[data-theme="dark"] {
     scrollbar-width: auto;
     scrollbar-color: var(--color-muted) transparent;
   }
+
   html {
     @apply overflow-y-scroll scroll-smooth;
+    font-size: 1.125rem;
+    line-height: 1.8;
   }
+
   body {
     @apply flex min-h-svh flex-col bg-background font-app text-foreground selection:bg-accent/75 selection:text-background;
   }
+
   a,
   button {
     @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
   }
+
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
