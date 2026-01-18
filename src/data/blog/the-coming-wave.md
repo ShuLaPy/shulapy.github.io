@@ -6,6 +6,9 @@ title: "The Coming Wave: When Intelligence and Life Become Programmable"
 slug: the-coming-wave
 featured: true
 draft: false
+tags:
+  - "Artificial Intelligence"
+  - "AI Safety"
 description: AI isn’t the whole story. A far bigger shift is underway - one where intelligence and life itself are becoming programmable, accelerating faster than we know how to control.
 ---
 
