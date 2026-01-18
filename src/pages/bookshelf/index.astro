@@ -1,0 +1,15 @@
+---
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE } from "@/config";
+---
+
+<Layout title={`Bookshelf | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="Bookshelf" pageDesc="All the books I've read or am reading.">
+    
+  </Main>
+  <Footer />
+</Layout>
