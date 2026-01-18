@@ -7,16 +7,16 @@
 html[data-theme="light"] {
   --background: #faf8f1;
   --foreground: #282728;
-  --accent: #171717;
-  --muted: #e6e6e6;
-  --border: #e8e6e6;
+  --accent: #53A548;
+  --muted: #91CB3E;
+  --border: #4C934C;
 }
 
 html[data-theme="dark"] {
   --background: #161616;
   --foreground: #eaedf3;
   --accent: #ff6b01;
-  --muted: #343f60;
+  --muted: #FF9E01;
   --border: #ab4b08;
 }
 
