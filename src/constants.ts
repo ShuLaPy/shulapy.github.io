@@ -87,7 +87,7 @@ export const GISCUS: GiscusProps = {
   repo: "ShuLaPy/shulapy.github.io",
   repoId: "R_kgDOQ8Lluw",
   category: "Announcements",
-  categoryId: "DIC_kwDOQ8Lluw4CQ8JW",
+  categoryId: "DIC_kwDOQ8Llu84C1G_z",
   mapping: "pathname",
   strict: "0",
   reactionsEnabled: "1",
