@@ -1,4 +1,5 @@
 import type { Props } from "astro";
+import type { GiscusProps } from "@giscus/react";
 import IconMail from "@/assets/icons/IconMail.svg";
 import IconGitHub from "@/assets/icons/IconGitHub.svg";
 import IconBrandX from "@/assets/icons/IconBrandX.svg";
@@ -81,3 +82,17 @@ export const SHARE_LINKS: Social[] = [
     icon: IconMail,
   },
 ] as const;
+
+export const GISCUS: GiscusProps = {
+  repo: "ShuLaPy/shulapy.github.io",
+  repoId: "R_kgDOQ8Lluw",
+  category: "Announcements",
+  categoryId: "DIC_kwDOQ8Lluw4CQ8JW",
+  mapping: "pathname",
+  strict: "0",
+  reactionsEnabled: "1",
+  emitMetadata: "0",
+  inputPosition: "top",
+  lang: "en",
+  loading: "lazy",
+};
