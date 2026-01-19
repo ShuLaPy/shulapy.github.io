@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow on a schedule
+  # # Trigger the workflow on a schedule
   schedule:
     # Run at 5:30 AM UTC every day
     - cron: '30 4 * * *'
@@ -10,7 +10,7 @@ on:
   # push:
   #   branches: [ main ]
   # # Allows you to run this workflow manually from the Actions tab on GitHub.
-  # workflow_dispatch:
+  workflow_dispatch:
   
 
 # Allow this job to clone the repo and create a page deployment
