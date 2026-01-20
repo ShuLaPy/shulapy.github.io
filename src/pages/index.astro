@@ -10,6 +10,7 @@ import getSortedPosts from "@/utils/getSortedPosts";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
+import VapiAgent from "@/components/VapiAgent";
 
 const posts = await getCollection("blog");
 
@@ -25,9 +26,19 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       <h1 class="inline-block text-2xl font-bold sm:text-3xl">
         That Random Guy 👋
       </h1>
-      
+
+      <div
+        class="mb-4 flex w-full justify-center sm:float-right sm:mb-2 sm:ml-6 sm:block sm:w-auto"
+      >
+        <VapiAgent client:load />
+      </div>
+
       <p class="mt-4">
-        Software Engineer II at <LinkButton class="underline decoration-dashed underline-offset-4 hover:text-accent" href="https://www.softway.com" target="_blank">Softway</LinkButton> - I build things, break things, and pretend it was "part of the plan."
+        Software Engineer II at <LinkButton
+          class="underline decoration-dashed underline-offset-4 hover:text-accent"
+          href="https://www.softway.com"
+          target="_blank">Softway</LinkButton
+        > - I build things, break things, and pretend it was "part of the plan."
       </p>
 
       <p class="mt-4">
@@ -35,11 +46,13 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       </p>
 
       <p class="mt-2">
-        <strong>System Design, Backend Engineering, and AI Agents</strong> - basically anything that makes my brain go "wait… how does that work?"
+        <strong>System Design, Backend Engineering, and AI Agents</strong> - basically
+        anything that makes my brain go "wait… how does that work?"
       </p>
 
       <p class="mt-4">
-        No guru energy here. Just learning in public, sharing notes, and occasionally over-explaining stuff so future-me doesn't suffer.
+        No guru energy here. Just learning in public, sharing notes, and
+        occasionally over-explaining stuff so future-me doesn't suffer.
       </p>
 
       <p class="mt-4">
