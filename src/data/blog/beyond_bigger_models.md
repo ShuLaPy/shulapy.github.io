@@ -1,7 +1,7 @@
 ---
 author: Shubham Lad
-pubDatetime: 2026-01-21T10:00:00.000Z
-modDatetime: 2026-01-21T10:00:00.000Z
+pubDatetime: 2026-01-21T04:30:00.000Z
+modDatetime: 2026-01-21T04:30:00.000Z
 title: "Beyond Bigger Models: The Three Scaling Laws Redefining AI's Future"
 slug: beyond_bigger_models
 featured: true
