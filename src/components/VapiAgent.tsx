@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Vapi from '@vapi-ai/web';
+import Orb from './Orb';
 
 const VapiAgent = () => {
     const [status, setStatus] = useState<'idle' | 'popup' | 'connecting' | 'active'>('idle');
@@ -99,32 +100,31 @@ const VapiAgent = () => {
                     </div>
                 )}
 
+                {/* ACTIVE & CONNECTING STATE (3D Orb & Overlay Controls) */}
                 {(status === 'active' || status === 'connecting') && (
-                    <div className="w-full h-full flex flex-col items-center justify-center relative animate-fade-in">
-                        {/* Fluid Sphere Animation */}
-                        <div className="relative w-24 h-24 mb-2 flex items-center justify-center">
-                            {/* Core Sphere */}
-                            <div
-                                className="absolute bg-skin-accent rounded-full opacity-60 blur-md transition-all duration-100 ease-out"
-                                style={{
-                                    width: `${40 + (volume * 60)}%`,
-                                    height: `${40 + (volume * 60)}%`,
-                                }}
-                            />
-                            <div
-                                className="absolute bg-gradient-to-tr from-skin-accent to-purple-400 rounded-full transition-all duration-100 ease-out mix-blend-screen"
-                                style={{
-                                    width: `${30 + (volume * 40)}%`,
-                                    height: `${30 + (volume * 40)}%`,
-                                    transform: `rotate(${volume * 360}deg)`
-                                }}
-                            />
-                            <div className="w-full h-full rounded-full border-2 border-skin-accent opacity-20 animate-spin-slow absolute"></div>
+                    <div className="w-full h-full flex flex-col items-center justify-center relative animate-fade-in group cursor-pointer">
 
+                        {/* 3D WebGL Orb */}
+                        <div className="relative w-48 h-48 flex items-center justify-center transition-all duration-300 group-hover:blur-sm group-hover:scale-95 group-hover:opacity-50">
+                            <Orb volume={volume} active={status === 'active'} />
                             {status === 'connecting' && (
-                                <span className="text-xs font-mono animate-pulse text-skin-base">Connecting...</span>
+                                <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-mono animate-pulse text-white mix-blend-difference pointer-events-none">Connecting...</span>
                             )}
                         </div>
+
+                        {/* HOVER OVERLAY: End Call Button */}
+                        {status === 'active' && (
+                            <div
+                                className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20"
+                                onClick={endCall}
+                            >
+                                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-700 text-white rounded-full shadow-[0_8px_30px_rgba(220,38,38,0.5)] border border-white/20 backdrop-blur-sm flex items-center justify-center transform transition-all duration-300 hover:scale-110 hover:shadow-[0_15px_40px_rgba(220,38,38,0.6)] hover:brightness-110 group-active:scale-95">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-md">
+                                        <path d="M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-3.33-2.67m-2.67-3.34a19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91" transform="rotate(135 12 12)" />
+                                    </svg>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>
@@ -143,17 +143,7 @@ const VapiAgent = () => {
                 </div>
             )}
 
-            {/* End Call Button (Overlay for Active State) */}
-            {status === 'active' && (
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 z-10 w-full flex justify-center">
-                    <button
-                        onClick={endCall}
-                        className="bg-red-500/90 hover:bg-red-600 text-white text-[10px] uppercase font-bold tracking-wider px-3 py-1 rounded-full shadow-md backdrop-blur-sm transition-colors"
-                    >
-                        End Call
-                    </button>
-                </div>
-            )}
+
         </div>
     );
 };
