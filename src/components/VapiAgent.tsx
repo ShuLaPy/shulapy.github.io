@@ -1,12 +1,39 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Vapi from '@vapi-ai/web';
-import Orb from './Orb';
+import TalkingImage from './TalkingImage';
 
 const VapiAgent = () => {
     const [status, setStatus] = useState<'idle' | 'popup' | 'connecting' | 'active'>('idle');
     const [volume, setVolume] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
     const vapiRef = useRef<any>(null);
+    const connectingSound = useRef<HTMLAudioElement | null>(null);
+
+    useEffect(() => {
+        // Init audio
+        connectingSound.current = new Audio("https://res.cloudinary.com/zeuadaprogramming/video/upload/v1768974101/Blog/mixkit-old-telephone-ring-1357_zjpzoc.wav");
+        connectingSound.current.loop = true;
+        connectingSound.current.volume = 0.5;
+
+        return () => {
+            if (connectingSound.current) {
+                connectingSound.current.pause();
+                connectingSound.current = null;
+            }
+        };
+    }, []);
+
+    // Handle sound playback based on status
+    useEffect(() => {
+        if (status === 'connecting') {
+            connectingSound.current?.play().catch(e => console.error("Audio play failed", e));
+        } else {
+            if (connectingSound.current) {
+                connectingSound.current.pause();
+                connectingSound.current.currentTime = 0;
+            }
+        }
+    }, [status]);
 
     // Vapi Event Listeners
     useEffect(() => {
@@ -39,7 +66,6 @@ const VapiAgent = () => {
             vapi.stop();
             vapiRef.current = null;
         };
-
     }, []);
 
     // Close popup on click outside
@@ -89,6 +115,7 @@ const VapiAgent = () => {
                             src="https://res.cloudinary.com/zeuadaprogramming/image/upload/v1768942548/Blog/ChatGPT_Image_Jan_21__2026__01_20_43_AM__1_-removebg-preview_paxy7j.png"
                             alt="AI Agent Trigger"
                             className={`w-full h-full object-contain transition-all duration-300 ${status === 'popup' ? 'blur-sm brightness-75 scale-95' : ''}`}
+                            onMouseEnter={() => connectingSound.current?.load()}
                         />
                         {/* Pulse Badge for Attention (Only when totally idle) */}
                         {status === 'idle' && (
@@ -100,15 +127,15 @@ const VapiAgent = () => {
                     </div>
                 )}
 
-                {/* ACTIVE & CONNECTING STATE (3D Orb & Overlay Controls) */}
+                {/* ACTIVE & CONNECTING STATE (Talking Image & Overlay Controls) */}
                 {(status === 'active' || status === 'connecting') && (
                     <div className="w-full h-full flex flex-col items-center justify-center relative animate-fade-in group cursor-pointer">
 
-                        {/* 3D WebGL Orb */}
-                        <div className="relative w-48 h-48 flex items-center justify-center transition-all duration-300 group-hover:blur-sm group-hover:scale-95 group-hover:opacity-50">
-                            <Orb volume={volume} active={status === 'active'} />
+                        {/* Animated Character */}
+                        <div className={`relative w-48 h-48 flex items-center justify-center transition-all duration-300 ${status === 'active' ? 'group-hover:blur-sm group-hover:scale-95 group-hover:opacity-50' : ''}`}>
+                            <TalkingImage volume={volume} active={status === 'active'} />
                             {status === 'connecting' && (
-                                <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-mono animate-pulse text-white mix-blend-difference pointer-events-none">Connecting...</span>
+                                <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xs font-mono animate-pulse text-white bg-black/50 px-2 rounded backdrop-blur-sm pointer-events-none">Connecting...</span>
                             )}
                         </div>
 
