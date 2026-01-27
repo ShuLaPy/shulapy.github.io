@@ -6,9 +6,15 @@ const currentYear = new Date().getFullYear();
 
 type Props = {
   noMarginTop?: boolean;
+  showResumeImage?: boolean;
 } & HTMLAttributes<"footer">;
 
-const { noMarginTop = false, class: className, ...attrs } = Astro.props;
+const {
+  noMarginTop = false,
+  showResumeImage = false,
+  class: className,
+  ...attrs
+} = Astro.props;
 ---
 
 <footer
@@ -18,10 +24,27 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
   <div
     class:list={[
       "py-6 sm:py-4",
-      "border-t border-border",
+      "relative border-t border-border",
       "flex flex-col items-center justify-between sm:flex-row-reverse",
     ]}
   >
+    {showResumeImage && (
+      <!-- Resume Image on Border Line -->
+      <a
+        href="https://drive.google.com/file/d/15CWaRKlQ1nAxmK3pMjFxraqVTVysGqn8/view"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="resume-image-link group absolute bottom-full left-1/2 -mt-2 block w-30 -translate-x-1/2 sm:left-[75%] sm:w-36"
+        aria-label="View Resume"
+      >
+        <img
+          src="https://res.cloudinary.com/zeuadaprogramming/image/upload/v1769489526/Blog/ChatGPT_Image_Jan_27__2026__10_16_11_AM-removebg-preview_lb4sv6.png"
+          alt="Shubham Lad - View Resume"
+          class="resume-image w-full select-none"
+        />
+        <span class="resume-text">Resume</span>
+      </a>
+    )}
     <Socials />
     <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
       <span>&#169; {currentYear}</span>
@@ -30,3 +53,34 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
     </div>
   </div>
 </footer>
+
+<style>
+  .resume-image {
+    transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter, transform;
+  }
+
+  .resume-image-link:hover .resume-image {
+    filter: blur(4px);
+    transform: scale(1.1);
+  }
+
+  .resume-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-default);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+  }
+
+  .resume-image-link:hover .resume-text {
+    opacity: 1;
+  }
+</style>
