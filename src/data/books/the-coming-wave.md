@@ -12,6 +12,7 @@ description: |
   
   This is what is coming.
 cover: https://the-coming-wave.com/static/f02c39cc58e8a4552fd153882e6ac023/ba01f/book-cover-flattened.webp
+thumbnail: https://res.cloudinary.com/zeuadaprogramming/image/upload/v1769942489/Blog/Books/the-coming-wave_tqasvi.webp
 readingStatus: Reading
 featured: true
 ---
