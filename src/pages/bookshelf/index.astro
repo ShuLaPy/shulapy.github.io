@@ -5,7 +5,6 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE } from "@/config";
 import { getCollection } from "astro:content";
-import Card from "@/components/Card.astro";
 
 const books = await getCollection("books");
 
@@ -31,20 +30,23 @@ const sortedBooks = books.sort(
               </a>
             )}
             <div class="flex flex-grow items-center justify-between">
-            <div class="flex flex-col">
-              <a
-                href={`/bookshelf/${id}/`}
-                class="text-skin-base text-lg font-medium decoration-dashed underline-offset-4 group-hover:underline focus-visible:no-underline focus-visible:underline-offset-0"
-              >
-                {data.title}
-              </a>
-              <span class="text-sm italic opacity-70">{data.author}</span>
-            </div>
-            <div class="flex flex-col items-end gap-1">
-              <span class="border-skin-line text-skin-inverted bg-skin-fill/10 dark:bg-skin-accent/10 dark:text-skin-accent rounded-full border px-2 py-0.5 text-xs">
-                {data.category}
-              </span>
-              <span class="text-xs opacity-60">{data.readingStatus}</span>
+              <div class="flex flex-col">
+                <a
+                  href={`/bookshelf/${id}/`}
+                  class="text-skin-base text-lg font-medium decoration-dashed underline-offset-4 group-hover:underline focus-visible:no-underline focus-visible:underline-offset-0"
+                >
+                  {data.title}
+                </a>
+                <span class="text-sm italic opacity-70">{data.author}</span>
+              </div>
+              <div class="flex flex-col items-end gap-1">
+                <span class="border-skin-line text-skin-inverted bg-skin-fill/10 dark:bg-skin-accent/10 dark:text-skin-accent rounded-full border px-2 py-0.5 text-xs">
+                  {data.category}
+                </span>
+                <span class="flex items-center gap-1 text-xs opacity-60">
+                  {data.readingStatus}
+                </span>
+              </div>
             </div>
           </li>
         ))
