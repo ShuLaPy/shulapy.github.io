@@ -38,7 +38,7 @@ const books = defineCollection({
       ogImage: image().or(z.string()).optional(),
       description: z.string(),
       cover: z.string().optional(),
-      readingStatus: z.enum(["Reading", "Read", "To Read"]).default("Read"),
+      readingStatus: z.enum(["Reading", "Listening", "Read", "To Read"]).default("Read"),
     }),
 });
 

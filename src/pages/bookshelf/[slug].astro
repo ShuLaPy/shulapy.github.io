@@ -52,7 +52,40 @@ const { Content } = await render(book);
               >{book.data.category}</span
             >
             <span>&bull;</span>
-            <span>{book.data.readingStatus}</span>
+            <span class="flex items-center gap-1">
+              {
+                book.data.readingStatus === "Listening" ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2z" />
+                    <path d="M21 14h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2z" />
+                    <path d="M21 14v-3a9 9 0 0 0-9-9 9 9 0 0 0-9 9v3" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-4 w-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                  </svg>
+                )
+              }
+              {book.data.readingStatus}
+            </span>
           </div>
           <p
             class="mx-auto mt-6 max-w-md font-serif text-base whitespace-pre-line opacity-90 md:mx-0"
