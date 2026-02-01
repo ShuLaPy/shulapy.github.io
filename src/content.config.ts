@@ -23,4 +23,23 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+export const BOOKS_PATH = "src/data/books";
+
+const books = defineCollection({
+  loader: glob({ pattern: "**/[^_]*.md", base: `./${BOOKS_PATH}` }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      author: z.string(),
+      category: z.string(),
+      pubDatetime: z.date(),
+      featured: z.boolean().optional(),
+      draft: z.boolean().optional(),
+      ogImage: image().or(z.string()).optional(),
+      description: z.string(),
+      cover: z.string().optional(),
+      readingStatus: z.enum(["Reading", "Read", "To Read"]).default("Read"),
+    }),
+});
+
+export const collections = { blog, books };

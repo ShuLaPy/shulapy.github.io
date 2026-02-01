@@ -1,0 +1,79 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Main from "@/layouts/Main.astro";
+import { SITE } from "@/config";
+
+export async function getStaticPaths() {
+  const books = await getCollection("books");
+  return books.map(book => ({
+    params: { slug: book.id },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const { Content } = await render(book);
+---
+
+<Layout title={`${book.data.title} | ${SITE.title}`}>
+  <Header />
+  <Main pageTitle="" pageDesc="" noBreadcrumb={true}>
+    <div class="mx-auto max-w-4xl px-4">
+      <div
+        class="mb-12 flex flex-col items-center gap-8 text-center md:flex-row md:items-start md:text-left"
+      >
+        {
+          book.data.cover && (
+            <div class="flex-shrink-0">
+              <img
+                src={book.data.cover}
+                alt={book.data.title}
+                class="bg-skin-fill/5 border-skin-line/20 w-48 rotate-2 rounded border object-cover shadow-xl transition-transform duration-300 hover:rotate-0 sm:w-56 md:w-64"
+              />
+            </div>
+          )
+        }
+        <div class="flex flex-1 flex-col justify-center">
+          <h1
+            class="text-skin-base mb-4 font-serif text-3xl leading-tight font-bold sm:text-5xl"
+          >
+            {book.data.title}
+          </h1>
+          <p class="text-skin-base mb-6 font-serif text-xl italic opacity-80">
+            by {book.data.author}
+          </p>
+          <div
+            class="flex flex-wrap items-center justify-center gap-4 text-sm tracking-wider uppercase opacity-70 md:justify-start"
+          >
+            <span class="border-skin-accent border-b-2 pb-0.5"
+              >{book.data.category}</span
+            >
+            <span>&bull;</span>
+            <span>{book.data.readingStatus}</span>
+          </div>
+          <p
+            class="mx-auto mt-6 max-w-md font-serif text-base whitespace-pre-line opacity-90 md:mx-0"
+          >
+            {book.data.description}
+          </p>
+        </div>
+      </div>
+
+      <hr class="border-skin-line/30 my-8" />
+
+      <article
+        class="mx-auto prose prose-lg mt-8 max-w-3xl font-serif dark:prose-invert"
+      >
+        <Content />
+      </article>
+
+      <div class="mt-12 text-center font-serif text-sm italic opacity-50">
+        <p>Published on {book.data.pubDatetime.toLocaleDateString()}</p>
+      </div>
+    </div>
+  </Main>
+  <Footer />
+</Layout>

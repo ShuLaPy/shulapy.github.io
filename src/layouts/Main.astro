@@ -5,14 +5,17 @@ import { SITE } from "@/config";
 type StringTitle = { pageTitle: string };
 type ArrayTitle = { pageTitle: [string, string]; titleTransition: string };
 
-type Props = (StringTitle | ArrayTitle) & { pageDesc?: string };
+type Props = (StringTitle | ArrayTitle) & {
+  pageDesc?: string;
+  noBreadcrumb?: boolean;
+};
 
 const { props } = Astro;
 
 const backUrl = SITE.showBackButton ? Astro.url.pathname : "/";
 ---
 
-<Breadcrumb />
+{!props.noBreadcrumb && <Breadcrumb />}
 <main data-backUrl={backUrl} id="main-content" class="app-layout pb-4">
   {
     "titleTransition" in props ? (
