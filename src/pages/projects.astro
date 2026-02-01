@@ -1,0 +1,57 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { PROJECTS } from "@/constants";
+import { SITE } from "@/config";
+---
+
+<Layout title={`Projects | ${SITE.title}`}>
+  <Header activeNav="projects" />
+  <main id="main-content" class="app-layout pt-12 pb-24">
+    <section>
+      <h1 class="mb-4 text-3xl font-bold tracking-tight">Projects</h1>
+      <p class="mb-12 max-w-2xl opacity-80">
+        A collection of things I've built, broken, and eventually fixed. From
+        security tools to personal experiments.
+      </p>
+
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+        {
+          PROJECTS.map(project => (
+            <div class="group border-skin-line bg-skin-card hover:border-skin-accent flex flex-col rounded-xl border p-6 transition-all duration-300">
+              <h2 class="group-hover:text-skin-accent mb-3 text-xl font-bold transition-colors">
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.name}
+                </a>
+              </h2>
+              <p class="mb-6 flex-grow text-sm leading-relaxed opacity-80">
+                {project.description}
+              </p>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2">
+                  {project.tech.map(t => (
+                    <span class="bg-skin-accent/10 text-skin-accent border-skin-accent/20 rounded border px-2 py-1 text-[10px] font-bold tracking-widest uppercase">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  main {
+    min-height: calc(100vh - 200px);
+  }
+</style>

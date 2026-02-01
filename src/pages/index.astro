@@ -11,6 +11,8 @@ import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
 import VapiAgent from "@/components/VapiAgent";
+import EnhancedTerminal from "@/components/EnhancedTerminal";
+import { PROJECTS } from "@/constants";
 
 const posts = await getCollection("blog");
 
@@ -67,6 +69,10 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
           </div>
         )
       }
+
+      <div class="fade-in-up mt-12">
+        <EnhancedTerminal client:load />
+      </div>
     </section>
 
     {

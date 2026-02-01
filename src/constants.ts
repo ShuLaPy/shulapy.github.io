@@ -17,6 +17,37 @@ interface Social {
   icon: (_props: Props) => Element;
 }
 
+export interface Project {
+  name: string;
+  description: string;
+  link: string;
+  featured?: boolean;
+  tech: string[];
+}
+
+export const PROJECTS: Project[] = [
+  {
+    name: "WebX",
+    description: "Web security scanning tool designed to identify vulnerabilities in websites. The application consists of a full-stack architecture with Python/Flask backend and JavaScript frontend.",
+    link: "https://github.com/shulapy",
+    featured: true,
+    tech: ["Python", "Flask", "JavaScript", "OpenAI API"],
+  },
+  {
+    name: "Astro Portfolio",
+    description: "A minimal, accessible, and SEO-friendly portfolio built with Astro and Tailwind CSS. Features deep terminal integration and highly customized styles.",
+    link: "https://github.com/satnaing/astro-paper",
+    featured: true,
+    tech: ["Astro", "TypeScript", "Tailwind CSS", "React"],
+  },
+  {
+    name: "Project Three",
+    description: "Another cool project. Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    link: "https://github.com/shulapy",
+    tech: ["Node.js", "Express", "MongoDB"],
+  },
+];
+
 export const SOCIALS: Social[] = [
   {
     name: "GitHub",
