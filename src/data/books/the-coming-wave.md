@@ -2,7 +2,7 @@
 title: The Coming Wave
 author: Michael Bhaskar and Mustafa Suleyman
 category: Science
-pubDatetime: 2024-01-01T00:00:00Z
+pubDatetime: 2026-02-01T00:00:00Z
 description: |
   This is a story of 21st century technology, why it matters so much and what we can do to make it work for everyone.
 
@@ -16,9 +16,4 @@ readingStatus: Reading
 featured: true
 ---
 
-This is a placeholder review for *The Coming Wave* by Michael Bhaskar and Mustafa Suleyman. It's a fantastic book about how small changes can lead to remarkable results.
-
-## Key Takeaways
-- 1% better every day.
-- Systems > Goals.
-- Identity-based habits.
+# Reading...
