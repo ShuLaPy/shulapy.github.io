@@ -15,6 +15,7 @@ import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
 import Comments from "@/components/Comments";
+import CosmicBackground from "@/components/CosmicBackground.astro";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -84,6 +85,7 @@ const nextPost =
 ---
 
 <Layout {...layoutProps}>
+  {post.data.specialBackground === "cosmic" && <CosmicBackground />}
   <Header />
   <BackButton />
   <main

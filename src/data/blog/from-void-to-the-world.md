@@ -11,6 +11,7 @@ tags:
   - "Cosmology"
   - "Astrophysics"
   - "Science"
+specialBackground: cosmic
 ---
 
 ![From_the_Void_to_the_World](https://res.cloudinary.com/zeuadaprogramming/image/upload/v1770061619/Blog/From_the_Void_to_the_World_c9ekyq.webp)

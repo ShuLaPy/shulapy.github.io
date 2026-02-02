@@ -1,0 +1,186 @@
+<div
+  id="cosmic-bg-container"
+  class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#020205]"
+>
+  <canvas id="cosmic-canvas" class="h-full w-full opacity-60"></canvas>
+</div>
+
+<script is:inline>
+  function initCosmicBackground() {
+    const canvas = document.getElementById("cosmic-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    const container = document.getElementById("cosmic-bg-container");
+
+    let width, height;
+    let stars = [];
+    let planets = [];
+    let mouse = { x: 0, y: 0 };
+    let scrollY = 0;
+    let targetMouse = { x: 0, y: 0 };
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * window.devicePixelRatio;
+      canvas.height = height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      initElements();
+    }
+
+    function initElements() {
+      stars = [];
+      const starCount = Math.floor((width * height) / 4000);
+      for (let i = 0; i < starCount; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: Math.random() * 1.5,
+          opacity: Math.random(),
+          speed: Math.random() * 0.05 + 0.01,
+          parallax: Math.random() * 0.5 + 0.1,
+        });
+      }
+
+      planets = [
+        {
+          x: width * 0.1,
+          y: height * 0.2,
+          size: 40,
+          color: "#3a4e9b",
+          parallax: 0.15,
+          drift: 0.0001,
+          blur: 2,
+        },
+        {
+          x: width * 0.85,
+          y: height * 0.7,
+          size: 60,
+          color: "#9b4e3a",
+          parallax: 0.25,
+          drift: -0.00015,
+          blur: 4,
+        },
+        {
+          x: width * 0.3,
+          y: height * 0.8,
+          size: 25,
+          color: "#4e9b3a",
+          parallax: 0.1,
+          drift: 0.0002,
+          blur: 1,
+        },
+      ];
+    }
+
+    function drawNebula() {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const gradient = ctx.createRadialGradient(
+        centerX + (mouse.x - width / 2) * 0.05,
+        centerY + (mouse.y - height / 2) * 0.05 - scrollY * 0.1,
+        0,
+        centerX,
+        centerY,
+        width * 0.8
+      );
+      gradient.addColorStop(0, "rgba(30, 10, 60, 0.4)");
+      gradient.addColorStop(0.5, "rgba(10, 5, 30, 0.1)");
+      gradient.addColorStop(1, "rgba(2, 2, 5, 0)");
+
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+
+    function drawStars() {
+      ctx.fillStyle = "#ffffff";
+      stars.forEach(star => {
+        const px = (mouse.x - width / 2) * star.parallax;
+        const py =
+          (mouse.y - height / 2) * star.parallax - scrollY * star.parallax;
+
+        let x = (star.x + px) % width;
+        let y = (star.y + py) % height;
+        if (x < 0) x += width;
+        if (y < 0) y += height;
+
+        ctx.globalAlpha =
+          star.opacity * (0.5 + Math.sin(Date.now() * star.speed) * 0.5);
+        ctx.beginPath();
+        ctx.arc(x, y, star.size, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
+
+    function drawPlanets() {
+      planets.forEach(planet => {
+        const px = (mouse.x - width / 2) * planet.parallax;
+        const py =
+          (mouse.y - height / 2) * planet.parallax - scrollY * planet.parallax;
+
+        const x = planet.x + px;
+        const y = planet.y + py;
+
+        ctx.shadowBlur = 10 * planet.parallax;
+        ctx.shadowColor = planet.color;
+
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, planet.size);
+        grad.addColorStop(0, planet.color);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(x, y, planet.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.shadowBlur = 0;
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Smooth mouse tracking
+      mouse.x += (targetMouse.x - mouse.x) * 0.05;
+      mouse.y += (targetMouse.y - mouse.y) * 0.05;
+
+      drawNebula();
+      drawStars();
+      drawPlanets();
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", e => {
+      targetMouse.x = e.clientX;
+      targetMouse.y = e.clientY;
+    });
+    window.addEventListener(
+      "scroll",
+      () => {
+        scrollY = window.scrollY;
+      },
+      { passive: true }
+    );
+
+    resize();
+    animate();
+  }
+
+  // Handle Astro's View Transitions
+  document.addEventListener("astro:page-load", initCosmicBackground);
+  // Initial load if not using transitions or for first load
+  if (document.readyState === "complete") {
+    initCosmicBackground();
+  } else {
+    window.addEventListener("load", initCosmicBackground);
+  }
+</script>
+
+<style>
+  #cosmic-bg-container {
+    background: radial-gradient(circle at center, #0a0a1a 0%, #020205 100%);
+  }
+</style>
