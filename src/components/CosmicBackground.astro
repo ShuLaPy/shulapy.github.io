@@ -1,16 +1,20 @@
 <div
   id="cosmic-bg-container"
-  class="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#020205]"
+  class="pointer-events-none fixed inset-0 overflow-hidden"
+  style="z-index: -1; background-color: #161616;"
 >
-  <canvas id="cosmic-canvas" class="h-full w-full opacity-60"></canvas>
+  <canvas id="cosmic-canvas" class="h-full w-full opacity-70"></canvas>
 </div>
 
 <script is:inline>
   function initCosmicBackground() {
     const canvas = document.getElementById("cosmic-canvas");
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
     const container = document.getElementById("cosmic-bg-container");
+    if (!container) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     let width, height;
     let stars = [];
@@ -177,9 +181,80 @@
   } else {
     window.addEventListener("load", initCosmicBackground);
   }
+
+  // FORCE DARK THEME for Cosmic Background
+  function getOriginalTheme() {
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme) return currentTheme;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  }
+
+  function forceDarkTheme() {
+    // CRITICAL: Only apply if the cosmic background is actually present on the current page
+    if (!document.getElementById("cosmic-bg-container")) return;
+
+    document.documentElement.setAttribute("data-theme", "dark");
+    document.documentElement.classList.add("cosmic-theme");
+  }
+
+  function restoreOriginalTheme() {
+    // Only restore if we were actually in cosmic theme
+    if (!document.documentElement.classList.contains("cosmic-theme")) return;
+
+    document.documentElement.classList.remove("cosmic-theme");
+    const originalTheme = getOriginalTheme();
+    document.documentElement.setAttribute("data-theme", originalTheme);
+
+    // Trigger reflectPreference if available to update meta tags etc.
+    if (window.theme?.reflectPreference) {
+      window.theme.themeValue = originalTheme;
+      window.theme.reflectPreference();
+    }
+  }
+
+  // Initial application
+  forceDarkTheme();
+
+  // Handle transitions
+  document.addEventListener("astro:after-swap", forceDarkTheme);
+  document.addEventListener("astro:page-load", forceDarkTheme);
+  document.addEventListener("astro:before-swap", restoreOriginalTheme);
 </script>
 
-<style>
+<style is:global>
+  /* Force dark mode colors for cosmic theme */
+  html.cosmic-theme {
+    color-scheme: dark !important;
+    background-color: #161616 !important;
+  }
+
+  html.cosmic-theme body,
+  html.cosmic-theme #main-content,
+  html.cosmic-theme main {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  /* Refine Header for Cosmic Background */
+  html.cosmic-theme #top-nav-wrap {
+    background: rgba(22, 22, 22, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+
+  /* Hide theme toggle as we're forcing dark mode */
+  html.cosmic-theme #theme-btn {
+    display: none !important;
+  }
+
+  /* Ensure text remains readable */
+  html.cosmic-theme #article {
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+
   #cosmic-bg-container {
     background: radial-gradient(circle at center, #0a0a1a 0%, #020205 100%);
   }
