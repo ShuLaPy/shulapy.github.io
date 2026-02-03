@@ -52,6 +52,14 @@
       @apply opacity-75;
     }
 
+    .image-credit {
+      @apply -mt-6 mb-8 text-center text-sm opacity-70 italic;
+
+      a {
+        @apply underline decoration-dotted underline-offset-2;
+      }
+    }
+
     table {
 
       th,

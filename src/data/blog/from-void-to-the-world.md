@@ -27,6 +27,7 @@ The universe came into existence in an event known as the **Big Bang**. This was
 Physics, as we know it, cannot yet describe what came before this moment—or why it happened at all. Those questions remain open. What science _can_ do is reconstruct what happened next, and those first transformations determined everything that followed.
 
 ![Big Bang](https://res.cloudinary.com/zeuadaprogramming/image/upload/v1770061620/Blog/Big_Bang_cdxejl.gif)
+<p class="image-credit">Big bang (Image credit: NASA)</p>
 
 ### The First Second: Forces Take Shape
 
@@ -87,6 +88,7 @@ These tiny ripples allowed gravity to begin its work.
 ### The First Stars: When Gravity Ignited Light
 
 ![The First Stars](https://res.cloudinary.com/zeuadaprogramming/image/upload/v1770061619/Blog/first_star_mymcwq.webp)
+<p class="image-credit">The biggest early stars released iron-rich material when they exploded. By studying the makeup of later stars, astronomers can learn what those earlier stars were made of. (Image credit: National Astronomical Observatory of Japan)</p>
 
 Gravity amplifies even the smallest imbalance.
 
@@ -138,6 +140,7 @@ Iron marked the limit. Fusing iron consumes energy rather than releasing it. Onc
 ### Supernovae: Creation Through Destruction
 
 ![Supernova](https://res.cloudinary.com/zeuadaprogramming/image/upload/v1770061951/Blog/a98a1eed-e47f-4931-9475-30c5f1ebb0d6_yz0h0j.gif)
+<p class="image-credit">A single supernova can briefly outshine an entire galaxy, forging many of the heavy elements that eventually become planets and life itself. (Image credit: ESO/L. Calçada)</p>
 
 When gravity finally won, the star’s core collapsed in seconds. It rebounded violently, sending a shockwave outward that tore the star apart in a **supernova explosion**.
 
