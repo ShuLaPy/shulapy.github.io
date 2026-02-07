@@ -4,7 +4,7 @@ pubDatetime: 2026-01-20T04:30:00.000Z
 modDatetime: 2026-01-20T04:30:00.000Z
 title: 4 Surprising Realities of Artificial Superintelligence (ASI)
 slug: surprising_realities_of_ASI
-featured: true
+featured: false
 draft: false
 description: A grounded look at Artificial Superintelligence that separates hype from reality, exploring how far we are from ASI, what it would take to build it, the transformative promise it holds, and the subtle but serious risks of misaligned goals.
 tags:
